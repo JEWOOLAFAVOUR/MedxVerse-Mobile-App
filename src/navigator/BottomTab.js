@@ -31,23 +31,23 @@ const BottomTab = () => {
                 tabBarIcon: ({ focused, size, colour }) => {
                     let iconName;
                     if (route.name === 'Home') {
-                        iconName = focused ? icons.shop : icons.shop
+                        iconName = focused ? icons.home : icons.home
                         size = focused ? SIZES.h3 : SIZES.h3,
                             colour = focused ? COLORS.secondary : COLORS.black
                     } else if (route.name === 'Message') {
-                        iconName = focused ? icons.explore : icons.explore
+                        iconName = focused ? icons.message : icons.message
                         size = focused ? SIZES.h3 : SIZES.h3,
                             colour = focused ? COLORS.secondary : COLORS.black
                     } else if (route.name === 'Notification') {
-                        iconName = focused ? icons.topchef : icons.topchef
+                        iconName = focused ? icons.notification : icons.notification
                         size = focused ? SIZES.h3 : SIZES.h3,
                             colour = focused ? COLORS.secondary : COLORS.black
                     } else if (route.name === 'Game') {
-                        iconName = focused ? icons.inbox : icons.inbox
+                        iconName = focused ? icons.game : icons.game
                         size = focused ? SIZES.h3 : SIZES.h3,
                             colour = focused ? COLORS.secondary : COLORS.black
                     } else if (route.name === 'More') {
-                        iconName = focused ? icons.account : icons.account
+                        iconName = focused ? icons.more : icons.more
                         size = focused ? SIZES.h3 : SIZES.h3,
                             colour = focused ? COLORS.secondary : COLORS.black
                     }
