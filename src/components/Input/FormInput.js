@@ -2,10 +2,11 @@ import { StyleSheet, Text, View, TextInput, Image, TouchableOpacity } from 'reac
 import React, { useState } from 'react'
 import { COLORS, FONTS, icons, SIZES } from '../../constants'
 
-const FormInput = ({ placeholder, keyboardType, eyeoff, value, setValue, }) => {
+const FormInput = ({ title, placeholder, keyboardType, eyeoff, value, setValue, }) => {
     const [hide, setHide] = useState(false);
     return (
         <View>
+            <Text style={{}}>{title}</Text>
             <View style={styles.container}>
                 <TextInput
                     placeholder={placeholder}
