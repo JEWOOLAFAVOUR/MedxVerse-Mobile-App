@@ -2,11 +2,11 @@ import { StyleSheet, View, Dimensions, Image, Text } from 'react-native';
 import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { COLORS, FONTS, icons, SIZES } from '../constants';
-import ShopScreen from '../screens/Main/Shop/ShopScreen';
-import ExploreScreen from '../screens/Main/Explore/ExploreScreen';
-import TopChefScreen from '../screens/Main/TopChef/TopChefScreen';
-import InboxScreen from '../screens/Main/Inbox/InboxScreen';
-import AccountScreen from '../screens/Main/Account/AccountScreen';
+import HomeScreen from '../screens/Main/Home/HomeScreen';
+import MessageScreen from '../screens/Main/Message/MessageScreen';
+import NotificationScreen from '../screens/Main/Notification/NotificationScreen';
+import GameScreen from '../screens/Main/Game/GameScreen';
+import MoreScreen from '../screens/Main/More/MoreScreen';
 
 
 const { width, height } = Dimensions.get('window');
@@ -30,23 +30,23 @@ const BottomTab = () => {
                 tabBarLabel: ({ focused }) => <Text style={{ fontSize: SIZES.body5, color: focused ? COLORS.secondary : COLORS.black, marginBottom: 5 }}>{route.name}</Text>,
                 tabBarIcon: ({ focused, size, colour }) => {
                     let iconName;
-                    if (route.name === 'Shop') {
+                    if (route.name === 'Home') {
                         iconName = focused ? icons.shop : icons.shop
                         size = focused ? SIZES.h3 : SIZES.h3,
                             colour = focused ? COLORS.secondary : COLORS.black
-                    } else if (route.name === 'Explore') {
+                    } else if (route.name === 'Message') {
                         iconName = focused ? icons.explore : icons.explore
                         size = focused ? SIZES.h3 : SIZES.h3,
                             colour = focused ? COLORS.secondary : COLORS.black
-                    } else if (route.name === 'TopChefs') {
+                    } else if (route.name === 'Notification') {
                         iconName = focused ? icons.topchef : icons.topchef
                         size = focused ? SIZES.h3 : SIZES.h3,
                             colour = focused ? COLORS.secondary : COLORS.black
-                    } else if (route.name === 'Inbox') {
+                    } else if (route.name === 'Game') {
                         iconName = focused ? icons.inbox : icons.inbox
                         size = focused ? SIZES.h3 : SIZES.h3,
                             colour = focused ? COLORS.secondary : COLORS.black
-                    } else if (route.name === 'Account') {
+                    } else if (route.name === 'More') {
                         iconName = focused ? icons.account : icons.account
                         size = focused ? SIZES.h3 : SIZES.h3,
                             colour = focused ? COLORS.secondary : COLORS.black
@@ -56,11 +56,11 @@ const BottomTab = () => {
                 headerShown: false
             })}
         >
-            <Tab.Screen name='Shop' component={ShopScreen} />
-            <Tab.Screen name='Explore' component={ExploreScreen} />
-            <Tab.Screen name='TopChefs' component={TopChefScreen} />
-            <Tab.Screen name='Inbox' component={InboxScreen} />
-            <Tab.Screen name='Account' component={AccountScreen} />
+            <Tab.Screen name='Home' component={HomeScreen} />
+            <Tab.Screen name='Message' component={MessageScreen} />
+            <Tab.Screen name='Notification' component={NotificationScreen} />
+            <Tab.Screen name='Game' component={GameScreen} />
+            <Tab.Screen name='More' component={MoreScreen} />
 
         </Tab.Navigator>
     )

@@ -1,14 +1,14 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 
-const TopChefScreen = () => {
+const MoreScreen = () => {
     return (
         <View>
-            <Text>TopChefScreen</Text>
+            <Text>MoreScreen</Text>
         </View>
     )
 }
 
-export default TopChefScreen
+export default MoreScreen
 
 const styles = StyleSheet.create({})
