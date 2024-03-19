@@ -5,20 +5,22 @@ import { COLORS, FONTS, icons, SIZES } from '../../constants'
 const FormInput = ({ placeholder, keyboardType, eyeoff, value, setValue, }) => {
     const [hide, setHide] = useState(false);
     return (
-        <View style={styles.container}>
-            <TextInput
-                placeholder={placeholder}
-                style={{ ...FONTS.body3, color: "#040B1B", flex: 1 }}
-                keyboardType={keyboardType}
-                value={value}
-                // defaultValue='ssssjj'
-                onChangeText={setValue}
-            />
-            {eyeoff &&
-                <TouchableOpacity onPress={() => setHide(!hide)}>
-                    <Image source={hide ? icons.padlock : icons.padlock} style={{ height: SIZES.h2, width: SIZES.h2 }} />
-                </TouchableOpacity>
-            }
+        <View>
+            <View style={styles.container}>
+                <TextInput
+                    placeholder={placeholder}
+                    style={{ ...FONTS.body3, color: "#040B1B", flex: 1 }}
+                    keyboardType={keyboardType}
+                    value={value}
+                    // defaultValue='ssssjj'
+                    onChangeText={setValue}
+                />
+                {eyeoff &&
+                    <TouchableOpacity onPress={() => setHide(!hide)}>
+                        <Image source={hide ? icons.padlock : icons.padlock} style={{ height: SIZES.h2, width: SIZES.h2 }} />
+                    </TouchableOpacity>
+                }
+            </View>
         </View>
     )
 }

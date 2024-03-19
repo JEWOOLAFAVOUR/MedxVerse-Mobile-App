@@ -21,44 +21,39 @@ const CreateAccount = ({ route }) => {
 
     const handleSubmit = () => {
         const body = { firstName, lastName, email }
-        // const securityErrors = makeSecurity('register', body);
+        const securityErrors = makeSecurity('register', body);
 
-        // if (securityErrors.length > 0) {
-        //     sendToast('error', securityErrors[0]);
-        //     console.log('erroo', securityErrors[0]);
-        //     return;
-        // }
-        // try {
-        //     dispatch(updateUserAuthDetails({ ...body }))
-        navigation.navigate("CreateAccountPassword")
-        // } catch (error) {
-        //     sendToast('error', error.message);
-        // }
+        if (securityErrors.length > 0) {
+            sendToast('error', securityErrors[0]);
+            console.log('erroo', securityErrors[0]);
+            return;
+        }
+        try {
+            dispatch(updateUserAuthDetails({ ...body }))
+            navigation.navigate("CreateAccountPassword")
+        } catch (error) {
+            sendToast('error', error.message);
+        }
     }
 
 
 
     return (
         <View style={styles.page}>
-            <AuthHeader title="Sign Up" />
-            <ScrollView showsVerticalScrollIndicator={false}>
-                <Image source={images.signup1} style={{ height: SIZES.height * 0.38, width: SIZES.width * 0.7, alignSelf: 'center' }} />
-                <View style={{ marginTop: SIZES.h5 }}>
-                    <FormInput placeholder="Full Name" />
-                    <FormInput placeholder="Phone Number" />
-                    <Text style={{ ...FONTS.body3c, color: COLORS.black, marginRight: SIZES.h1 }}>We need to verify you. We will send you a one time verification code.</Text>
-                    {/* BUTTONS */}
-                    <View style={{ marginTop: SIZES.h1 * 1.3 }}>
-                        <FormButton title="Next" onPress={() => handleSubmit()} />
-                        <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'center', marginBottom: SIZES.h2 }}>
-                            <Text style={{ ...FONTS.body3c, color: COLORS.black }}>Already have an account?</Text>
-                            <TouchableOpacity onPress={() => navigation.navigate('Login')}>
-                                <Text style={{ ...FONTS.body3c, color: COLORS.orange }}> Login</Text>
-                            </TouchableOpacity>
-                        </View>
-                    </View>
+            {/* HEADER */}
+            <View>
+                <Text>Create account</Text>
+                <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+                    <Text style={{ ...FONTS.body4, }}>Already with MedXVerse?</Text>
+                    <TouchableOpacity>
+                        <Text> Sign In</Text>
+                    </TouchableOpacity>
                 </View>
-            </ScrollView>
+            </View>
+            {/* INPUT */}
+            <View>
+                <FormInput />
+            </View>
         </View>
     )
 }
@@ -70,6 +65,6 @@ const styles = StyleSheet.create({
         flex: 1,
         backgroundColor: COLORS.white,
         paddingHorizontal: SIZES.width * 0.04,
-        // paddingTop: SIZES.h4,
+        paddingTop: SIZES.h4,
     },
 })
