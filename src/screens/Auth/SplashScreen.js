@@ -34,7 +34,7 @@ const SplashScreen = () => {
     return (
         <View style={styles.page}>
             <StatusBar backgroundColor={COLORS.primary} barStyle='light-content' />
-            <Image source={images.splash} style={{ height: SIZES.height, width: SIZES.width, }} />
+            <Image source={images.logo1} style={{ height: SIZES.h1 * 3, width: SIZES.h1 * 3, }} />
         </View>
     )
 }
@@ -44,6 +44,6 @@ export default SplashScreen
 const styles = StyleSheet.create({
     page: {
         flex: 1,
-
+        backgroundColor: COLORS.primary,
     },
 });
