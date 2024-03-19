@@ -12,9 +12,9 @@ export const COLORS = {
     white: '#ffffff',
     offwhite: '#F3F3F3',
     black: "#000000",
-    primary: "#6A9C2D",
-    secondary: "#59000E",
-    orange: "#FF5E00",
+    primary: "#272662",
+    secondary: "",
+    green: "#2BC652",
     chocolate: '#5d5c6c',
     chocolateBackground: '#CECFCD',
 };
