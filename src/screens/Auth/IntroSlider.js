@@ -76,7 +76,7 @@ const IntroSlider = ({ ...props }) => {
 
     const _onEndReached = () => {
         dispatch(updateOnboarding(true))
-        navigation.replace("Login")
+        navigation.replace("CreateAccount")
     }
     return (
         <View style={{ flex: 1, backgroundColor: COLORS.white }}>

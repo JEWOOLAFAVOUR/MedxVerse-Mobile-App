@@ -40,19 +40,18 @@ const CreateAccount = ({ route }) => {
 
     return (
         <View style={styles.page}>
-            {/* HEADER */}
-            <View>
-                <Text>Create account</Text>
-                <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+            <View style={{ marginTop: SIZES.h1 }}>
+                <Text style={{ ...FONTS.h2, color: COLORS.primary }}>Create account</Text>
+                <View style={{ flexDirection: 'row', alignItems: 'center', marginTop: SIZES.h5 }}>
                     <Text style={{ ...FONTS.body4, }}>Already with MedXVerse?</Text>
                     <TouchableOpacity>
-                        <Text> Sign In</Text>
+                        <Text style={{ textDecorationLine: 'underline', ...FONTS.body4, }}> Sign in</Text>
                     </TouchableOpacity>
                 </View>
             </View>
             {/* INPUT */}
-            <View>
-                <FormInput />
+            <View style={{ marginTop: SIZES.h1, }}>
+                <FormInput title="Name" />
             </View>
         </View>
     )

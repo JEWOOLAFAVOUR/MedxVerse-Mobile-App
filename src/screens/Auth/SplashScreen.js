@@ -19,11 +19,12 @@ const SplashScreen = () => {
         } else if (onboard) {
             setTimeout(() => {
                 // navigation.replace('VerifyNumber')
-                navigation.replace('IntroSlider')
+                // navigation.replace('IntroSlider')
+                navigation.replace('CreateAccount')
             }, 2000);
         } else {
             setTimeout(() => {
-                navigation.replace('IntroSlider');
+                navigation.replace('CreateAccount');
             }, 1000);
         }
     }
@@ -34,7 +35,7 @@ const SplashScreen = () => {
     return (
         <View style={styles.page}>
             <StatusBar backgroundColor={COLORS.primary} barStyle='light-content' />
-            <Image source={images.logo1} style={{ height: SIZES.h1 * 3, width: SIZES.h1 * 3, }} />
+            <Image source={images.logo1} style={{ height: SIZES.h1 * 5, width: SIZES.h1 * 5, }} />
         </View>
     )
 }
@@ -45,5 +46,7 @@ const styles = StyleSheet.create({
     page: {
         flex: 1,
         backgroundColor: COLORS.primary,
+        justifyContent: 'center',
+        alignItems: 'center',
     },
 });
