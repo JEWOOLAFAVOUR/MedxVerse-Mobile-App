@@ -6,6 +6,7 @@ import FormInput from '../../components/Input/FormInput'
 import FormButton from '../../components/Button/FormButton'
 import { useNavigation } from '@react-navigation/native'
 import ConfirmationCodeField from '../../components/Input/CodeConfirmation'
+import FormButton2 from '../../components/Button/FormButton2'
 
 const VerifyOtp = () => {
     const navigation = useNavigation();
@@ -16,19 +17,25 @@ const VerifyOtp = () => {
     }
     return (
         <View style={styles.page}>
-            <AuthHeader title="Verify OTP" />
-            <ScrollView showsVerticalScrollIndicator={false}>
-                <Image source={images.signup3} style={{ height: SIZES.height * 0.38, width: SIZES.width * 0.7, alignSelf: 'center' }} />
-                <Text style={{ ...FONTS.h3, color: COLORS.black, marginRight: SIZES.h1 * 3 }}>Enter Verification Code</Text>
-                <Text style={{ ...FONTS.body4, color: COLORS.black, marginTop: SIZES.h4 }}>We have send an email to:</Text>
-                <Text style={{ ...FONTS.body4, color: COLORS.black }}>jewoolafavour2020@gmail.com</Text>
-                <View style={{ marginTop: SIZES.h2 }}>
-                    <ConfirmationCodeField />
-                    {/* BUTTONS */}
-                    <FormButton title="Verify" onPress={() => handleSubmit()}
-                        btnStyle={{ marginTop: SIZES.h1 * 1.5 }} />
+            <View style={{ marginTop: SIZES.h1 }}>
+                <View style={{}}>
+                    <TouchableOpacity onPress={() => navigation.goBack()}>
+                        <Image source={icons.arrowleft2} style={{ height: SIZES.h2, width: SIZES.h2 }} />
+                    </TouchableOpacity>
+                    <Text style={{ ...FONTS.h2, color: COLORS.primary, marginTop: SIZES.base }}>Check your Email! To input your OTP.</Text>
                 </View>
-            </ScrollView>
+                <View style={{ flexDirection: 'row', alignItems: 'center', marginTop: SIZES.h5 }}>
+                    <Text style={{ ...FONTS.body5, }}>We have sent an OTP code to your email.</Text>
+                </View>
+            </View>
+            {/* INPUT */}
+            <View style={{ marginTop: SIZES.h1, marginBottom: SIZES.h1 * 2 }}>
+                <ConfirmationCodeField value={otp} setValue={setOtp} />
+            </View>
+
+            {/* BUTTON */}
+            <FormButton title="Confirm OTP" onPress={() => navigation.navigate("")} />
+            <FormButton2 title="Resend OTP" btnStyle={{ marginTop: SIZES.h1 }} />
         </View>
     )
 }
@@ -40,5 +47,6 @@ const styles = StyleSheet.create({
         flex: 1,
         backgroundColor: COLORS.white,
         paddingHorizontal: SIZES.width * 0.04,
+        paddingTop: SIZES.h4,
     },
 })

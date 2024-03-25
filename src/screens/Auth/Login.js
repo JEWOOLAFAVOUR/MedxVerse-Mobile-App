@@ -46,7 +46,7 @@ const Login = () => {
             </View>
             {/* BUTTON */}
 
-            <FormButton title="Sign In" />
+            <FormButton title="Sign In" onPress={() => navigation.navigate("Main", { screen: "Bottom" })} />
             <FormButton2 title="Forgot Password?" onPress={() => navigation.navigate("ForgotPassword")}
                 btnStyle={{ marginTop: SIZES.h1 }} />
             {/* FOOTER */}

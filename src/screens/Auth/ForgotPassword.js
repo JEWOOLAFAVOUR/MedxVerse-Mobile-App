@@ -16,23 +16,23 @@ const ForgotPassword = () => {
     return (
         <ScrollView style={styles.page}>
             <View style={{ marginTop: SIZES.h1 }}>
-                <View style={{ flexDirection: 'row', alignItems: 'center', }}>
+                <View style={{}}>
                     <TouchableOpacity onPress={() => navigation.goBack()}>
                         <Image source={icons.arrowleft2} style={{ height: SIZES.h2, width: SIZES.h2 }} />
                     </TouchableOpacity>
-                    <Text style={{ ...FONTS.h2, color: COLORS.primary, marginLeft: SIZES.h3 }}>Forget password! Enter your email</Text>
+                    <Text style={{ ...FONTS.h2, color: COLORS.primary, marginTop: SIZES.base }}>Forget password! Enter your email</Text>
                 </View>
                 <View style={{ flexDirection: 'row', alignItems: 'center', marginTop: SIZES.h5 }}>
-                    <Text style={{ ...FONTS.body4, }}>Enter the email associated with your account and we'll send a verification code to your email.</Text>
+                    <Text style={{ ...FONTS.body5, }}>Enter the email associated with your account and we'll send a verification code to your email.</Text>
                 </View>
             </View>
             {/* INPUT */}
-            <View style={{ marginTop: SIZES.h1, marginBottom: SIZES.h4 }}>
+            <View style={{ marginTop: SIZES.h1, marginBottom: SIZES.h1 * 2 }}>
                 <FormInput title="Email" placeholder="johndoe@gmail.com" />
             </View>
 
             {/* BUTTON */}
-            <FormButton title="Forget password" />
+            <FormButton title="Forget password" onPress={() => navigation.navigate("VerifyOtp")} />
         </ScrollView>
     )
 }

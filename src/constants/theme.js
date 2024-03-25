@@ -17,6 +17,7 @@ export const COLORS = {
     primary: "#272662",
     secondary: "",
     green: "#2BC652",
+    fade: "#DADAFF",
     chocolate: '#5d5c6c',
     chocolateBackground: '#CECFCD',
 };

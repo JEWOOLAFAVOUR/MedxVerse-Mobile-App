@@ -14,19 +14,22 @@ const styles = StyleSheet.create({
     //   title: {textAlign: 'center', fontSize: 30},
     codeFieldRoot: { marginTop: SIZES.h1 * 1.2 },
     cell: {
-        width: SIZES.h1 * 1.6,
-        height: SIZES.h1 * 1.6,
+        width: SIZES.h1 * 1.8,
+        height: SIZES.h1 * 1.7,
+        backgroundColor: COLORS.fade,
+        justifyContent: 'center',
+        alignItems: 'center',
         // lineHeight: 38,
-        fontSize: 28,
-        borderWidth: 1,
+        fontSize: 25,
+        // borderWidth: 1,
         // borderBottomWidth: 1,
-        borderColor: COLORS.dark,
+        // borderColor: COLORS.dark,
         textAlign: 'center',
         color: 'black',
-        borderRadius: SIZES.base,
+        borderRadius: SIZES.base * 0.7,
     },
     root: {
-        paddingHorizontal: SIZES.width * 0.05,
+        // paddingHorizontal: SIZES.width * 0.05,
         marginBottom: SIZES.h2,
     },
     focusCell: {
@@ -34,7 +37,7 @@ const styles = StyleSheet.create({
     },
 });
 
-const CELL_COUNT = 5;
+const CELL_COUNT = 6;
 
 const ConfirmationCodeField = ({ title, value, setValue }) => {
     //   const [value, setValue] = useState('');
