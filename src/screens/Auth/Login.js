@@ -7,6 +7,7 @@ import FormButton from '../../components/Button/FormButton'
 import { useNavigation } from '@react-navigation/native'
 import { makeSecurity } from '../../components/Template/security'
 import { Roller, sendToast } from '../../components/Template/utilis'
+import FormButton2 from '../../components/Button/FormButton2'
 
 const Login = () => {
     const navigation = useNavigation();
@@ -28,29 +29,34 @@ const Login = () => {
     };
 
     return (
-        <View style={styles.page}>
-            {load && <Roller visible={true} />}
-            <AuthHeader title="Sign In" />
-            <ScrollView showsVerticalScrollIndicator={false}>
-                <Image source={images.signin} style={{ height: SIZES.height * 0.38, width: SIZES.width * 0.7, alignSelf: 'center' }} />
-                <Text style={{ ...FONTS.body3c, color: COLORS.black, marginRight: SIZES.h1 * 3 }}>Enter your phone number and password to access your account</Text>
-                <View style={{ marginTop: SIZES.h5 }}>
-                    <FormInput placeholder="Email" value={email} setValue={setEmail} />
-                    <FormInput placeholder="Password" value={password} setValue={setPassword} />
-                    <TouchableOpacity style={{ marginBottom: SIZES.h2 }} onPress={() => navigation.navigate("ForgotPassword")}>
-                        <Text style={{ ...FONTS.body4, color: COLORS.orange, textAlign: 'right' }}>Forget Password?</Text>
+        <ScrollView style={styles.page}>
+            <View style={{ marginTop: SIZES.h1 }}>
+                <Text style={{ ...FONTS.h2, color: COLORS.primary }}>Sign In</Text>
+                <View style={{ flexDirection: 'row', alignItems: 'center', marginTop: SIZES.h5 }}>
+                    <Text style={{ ...FONTS.body4, }}>Don't have an account?</Text>
+                    <TouchableOpacity onPress={() => navigation.navigate('Login')}>
+                        <Text style={{ textDecorationLine: 'underline', ...FONTS.body4, color: COLORS.primary }}> Create Account</Text>
                     </TouchableOpacity>
-                    {/* BUTTONS */}
-                    <FormButton title="Sign in" onPress={() => handleLogin()} />
-                    <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'center' }}>
-                        <Text style={{ ...FONTS.body3c, color: COLORS.black }}>Don't have an account?</Text>
-                        <TouchableOpacity onPress={() => navigation.navigate("CreateAccount")}>
-                            <Text style={{ ...FONTS.body3c, color: COLORS.orange }}> Sign Up</Text>
-                        </TouchableOpacity>
-                    </View>
                 </View>
-            </ScrollView>
-        </View>
+            </View>
+            {/* INPUT */}
+            <View style={{ marginTop: SIZES.h1, marginBottom: SIZES.h2 }}>
+                <FormInput title="Email" placeholder="John Doe" />
+                <FormInput title="Password" placeholder="johndoe@gmail.com" eyeoff={true} />
+            </View>
+            {/* BUTTON */}
+            <FormButton title="Sign In" />
+            <FormButton2 title="Forgot Password?" btnStyle={{ marginTop: SIZES.h1 }} />
+            {/* FOOTER */}
+            <View style={{ marginTop: SIZES.h1 }}>
+                <Text style={{ ...FONTS.body4, color: COLORS.primary, textAlign: 'center' }}>Create Account with</Text>
+                <View style={{ flexDirection: 'row', alignItems: "center", justifyContent: 'space-around', marginTop: SIZES.h2 }}>
+                    <Image source={icons.apple} style={{ height: SIZES.h1 * 1.11, width: SIZES.h1 }} />
+                    <Image source={icons.google} style={{ height: SIZES.h1, width: SIZES.h1 }} />
+                    <Image source={icons.facebook} style={{ height: SIZES.h1, width: SIZES.h1 }} />
+                </View>
+            </View>
+        </ScrollView>
     )
 }
 
