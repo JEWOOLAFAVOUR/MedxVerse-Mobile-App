@@ -45,6 +45,7 @@ const Login = () => {
                 <FormInput title="Password" placeholder="johndoe@gmail.com" eyeoff={true} />
             </View>
             {/* BUTTON */}
+
             <FormButton title="Sign In" />
             <FormButton2 title="Forgot Password?" btnStyle={{ marginTop: SIZES.h1 }} />
             {/* FOOTER */}
