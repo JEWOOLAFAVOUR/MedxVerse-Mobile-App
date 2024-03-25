@@ -57,7 +57,7 @@ const CreateAccount = ({ route }) => {
                 <FormInput title="Display Name" placeholder="JohnDoe" />
             </View>
             {/* BUTTON */}
-            <FormButton title="Create Account" />
+            <FormButton title="Create Account" onPress={() => navigation.navigate('CreateAccountPassword')} />
             {/* FOOTER */}
             <View style={{ marginTop: SIZES.h1 }}>
                 <Text style={{ ...FONTS.body4, color: COLORS.primary, textAlign: 'center' }}>Create Account with</Text>

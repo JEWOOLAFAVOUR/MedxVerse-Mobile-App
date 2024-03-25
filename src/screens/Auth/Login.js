@@ -34,7 +34,7 @@ const Login = () => {
                 <Text style={{ ...FONTS.h2, color: COLORS.primary }}>Sign In</Text>
                 <View style={{ flexDirection: 'row', alignItems: 'center', marginTop: SIZES.h5 }}>
                     <Text style={{ ...FONTS.body4, }}>Don't have an account?</Text>
-                    <TouchableOpacity onPress={() => navigation.navigate('Login')}>
+                    <TouchableOpacity onPress={() => navigation.navigate('CreateAccount')}>
                         <Text style={{ textDecorationLine: 'underline', ...FONTS.body4, color: COLORS.primary }}> Create Account</Text>
                     </TouchableOpacity>
                 </View>
@@ -68,6 +68,6 @@ const styles = StyleSheet.create({
         flex: 1,
         backgroundColor: COLORS.white,
         paddingHorizontal: SIZES.width * 0.04,
-        // paddingTop: SIZES.h4,
+        paddingTop: SIZES.h4,
     },
 })

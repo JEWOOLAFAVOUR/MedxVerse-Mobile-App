@@ -15,20 +15,29 @@ const CreateAccountPassword = () => {
         navigation.navigate("VerifyOtp")
     }
     return (
-        <View style={styles.page}>
-            <AuthHeader title="Sign Up" />
-            <ScrollView showsVerticalScrollIndicator={false}>
-                <Image source={images.signup2} style={{ height: SIZES.height * 0.38, width: SIZES.width * 0.7, alignSelf: 'center' }} />
-                <Text style={{ ...FONTS.h3, color: COLORS.black, marginRight: SIZES.h1 * 3 }}>Enter the password</Text>
-                <View style={{ marginTop: SIZES.h2 }}>
-                    <FormInput placeholder="Password" />
-                    <FormInput placeholder="Confirm Password" />
-                    {/* BUTTONS */}
-                    <FormButton title="Sign in" onPress={() => handleSubmit()}
-                        btnStyle={{ marginTop: SIZES.h1 * 1.5 }} />
+        <ScrollView style={styles.page}>
+            <View style={{ marginTop: SIZES.h1 }}>
+                <View style={{ flexDirection: 'row', alignItems: 'center', }}>
+                    <Image source={icons.arrowleft2} style={{ height: SIZES.h2, width: SIZES.h2 }} />
+                    <Text style={{ ...FONTS.h2, color: COLORS.primary, marginLeft: SIZES.h3 }}>Create Password</Text>
                 </View>
-            </ScrollView>
-        </View>
+                <View style={{ flexDirection: 'row', alignItems: 'center', marginTop: SIZES.h5 }}>
+                    <Text style={{ ...FONTS.body4, }}>Used a well protected details as your password</Text>
+                </View>
+            </View>
+            {/* INPUT */}
+            <View style={{ marginTop: SIZES.h1, marginBottom: SIZES.h4 }}>
+                <FormInput title="Password" placeholder="john@1234" eyeoff={true} />
+                <FormInput title="Confirm Password" placeholder="john@1234" eyeoff={true} />
+            </View>
+            {/* REGULATORS */}
+            <View style={{ marginBottom: SIZES.h1 * 2.3 }}>
+                <Text style={{ fontFamily: "Mont-Regular", fontSize: SIZES.h5, color: COLORS.primary, marginBottom: SIZES.base * 0.5 }}>- Your password must be at least 8 characters long.</Text>
+                <Text style={{ fontFamily: "Mont-Regular", fontSize: SIZES.h5, color: COLORS.primary }}>- For security purposes, avoid using common words or phrases as your password.</Text>
+            </View>
+            {/* BUTTON */}
+            <FormButton title="Create Password" />
+        </ScrollView>
     )
 }
 
@@ -39,6 +48,6 @@ const styles = StyleSheet.create({
         flex: 1,
         backgroundColor: COLORS.white,
         paddingHorizontal: SIZES.width * 0.04,
-        // paddingTop: SIZES.h4,
+        paddingTop: SIZES.h4,
     },
 })
