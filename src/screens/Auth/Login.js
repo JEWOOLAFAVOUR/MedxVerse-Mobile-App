@@ -47,7 +47,8 @@ const Login = () => {
             {/* BUTTON */}
 
             <FormButton title="Sign In" />
-            <FormButton2 title="Forgot Password?" btnStyle={{ marginTop: SIZES.h1 }} />
+            <FormButton2 title="Forgot Password?" onPress={() => navigation.navigate("ForgotPassword")}
+                btnStyle={{ marginTop: SIZES.h1 }} />
             {/* FOOTER */}
             <View style={{ marginTop: SIZES.h1 }}>
                 <Text style={{ ...FONTS.body4, color: COLORS.primary, textAlign: 'center' }}>Create Account with</Text>

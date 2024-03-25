@@ -14,23 +14,26 @@ const ForgotPassword = () => {
         navigation.navigate('VerifyOtp')
     }
     return (
-        <View style={styles.page}>
-            <AuthHeader title="Forget Password" />
-            <ScrollView showsVerticalScrollIndicator={false}>
-                <Image source={images.signin} style={{ height: SIZES.height * 0.38, width: SIZES.width * 0.7, alignSelf: 'center' }} />
-                <View style={{ alignItems: 'center' }}>
-                    <Text style={{ ...FONTS.body3c, color: COLORS.black, textAlign: 'center', marginHorizontal: SIZES.h1 }}>You can request your password reset below.</Text>
-                    <Text style={{ ...FONTS.body3c, color: COLORS.black, textAlign: 'center', marginHorizontal: SIZES.h1 }}>We will send a security code to the email address, please make sure it is correct.</Text>
+        <ScrollView style={styles.page}>
+            <View style={{ marginTop: SIZES.h1 }}>
+                <View style={{ flexDirection: 'row', alignItems: 'center', }}>
+                    <TouchableOpacity onPress={() => navigation.goBack()}>
+                        <Image source={icons.arrowleft2} style={{ height: SIZES.h2, width: SIZES.h2 }} />
+                    </TouchableOpacity>
+                    <Text style={{ ...FONTS.h2, color: COLORS.primary, marginLeft: SIZES.h3 }}>Forget password! Enter your email</Text>
                 </View>
-                <View style={{ marginTop: SIZES.h5 }}>
-                    <View style={{ marginVertical: SIZES.h1 }}>
-                        <FormInput placeholder="Email" />
-                    </View>
-                    {/* BUTTONS */}
-                    <FormButton title="Request Password Reset" onPress={() => handleSubmit()} />
+                <View style={{ flexDirection: 'row', alignItems: 'center', marginTop: SIZES.h5 }}>
+                    <Text style={{ ...FONTS.body4, }}>Enter the email associated with your account and we'll send a verification code to your email.</Text>
                 </View>
-            </ScrollView>
-        </View>
+            </View>
+            {/* INPUT */}
+            <View style={{ marginTop: SIZES.h1, marginBottom: SIZES.h4 }}>
+                <FormInput title="Email" placeholder="johndoe@gmail.com" />
+            </View>
+
+            {/* BUTTON */}
+            <FormButton title="Forget password" />
+        </ScrollView>
     )
 }
 
@@ -41,6 +44,6 @@ const styles = StyleSheet.create({
         flex: 1,
         backgroundColor: COLORS.white,
         paddingHorizontal: SIZES.width * 0.04,
-        // paddingTop: SIZES.h4,
+        paddingTop: SIZES.h4,
     },
 })

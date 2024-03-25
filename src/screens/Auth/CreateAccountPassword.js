@@ -18,7 +18,9 @@ const CreateAccountPassword = () => {
         <ScrollView style={styles.page}>
             <View style={{ marginTop: SIZES.h1 }}>
                 <View style={{ flexDirection: 'row', alignItems: 'center', }}>
-                    <Image source={icons.arrowleft2} style={{ height: SIZES.h2, width: SIZES.h2 }} />
+                    <TouchableOpacity onPress={() => navigation.goBack()}>
+                        <Image source={icons.arrowleft2} style={{ height: SIZES.h2, width: SIZES.h2 }} />
+                    </TouchableOpacity>
                     <Text style={{ ...FONTS.h2, color: COLORS.primary, marginLeft: SIZES.h3 }}>Create Password</Text>
                 </View>
                 <View style={{ flexDirection: 'row', alignItems: 'center', marginTop: SIZES.h5 }}>
