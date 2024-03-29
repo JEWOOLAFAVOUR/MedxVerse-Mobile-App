@@ -59,7 +59,7 @@ const BottomTab = () => {
             <Tab.Screen name='Home' component={HomeScreen} />
             <Tab.Screen name='Message' component={MessageScreen} />
             <Tab.Screen name='Notification' component={NotificationScreen} />
-            <Tab.Screen name='Game' component={GameScreen} />
+            {/* <Tab.Screen name='Game' component={GameScreen} /> */}
             <Tab.Screen name='More' component={MoreScreen} />
 
         </Tab.Navigator>

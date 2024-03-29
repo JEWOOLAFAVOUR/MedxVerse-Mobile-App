@@ -7,6 +7,7 @@ export const eyeclose = require('../assets/icons/eyeclose.png')
 export const facebook = require('../assets/icons/facebook.png')
 export const game = require('../assets/icons/game.png')
 export const google = require('../assets/icons/google.png')
+export const hash = require('../assets/icons/hash.png')
 export const home = require('../assets/icons/home.png')
 export const horizontalmenu = require('../assets/icons/horizontalmenu.png')
 export const message = require('../assets/icons/message.png')
@@ -26,6 +27,7 @@ export default {
     facebook,
     game,
     google,
+    hash,
     home,
     horizontalmenu,
     message,
