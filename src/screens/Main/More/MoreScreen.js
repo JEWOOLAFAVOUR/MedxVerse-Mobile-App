@@ -24,21 +24,23 @@ const MoreScreen = () => {
         { id: 2, title: "Log out", iconName: icons.person, onPress: () => navigation.navigate('') },
     ]
 
-    const RenderTemplate = () => {
+    const RenderTemplate = ({ title, data }) => {
         return (
-            <View>
-                <Text style={{ ...FONTS.body4, color: COLORS.primary }}>Account</Text>
+            <View style={{ marginBottom: SIZES.h4 * 0.8 }}>
+                {title &&
+                    <Text style={{ ...FONTS.body4, color: COLORS.primary, fontFamily: "Mont-Regular", marginBottom: SIZES.base * 0.5 }}>{title}</Text>
+                }
                 <View style={styles.minCtn}>
                     <FlatList
-                        data={['',]}
+                        data={data}
                         renderItem={({ item }) => {
                             return (
-                                <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+                                <TouchableOpacity style={{ flexDirection: 'row', alignItems: 'center', marginBottom: SIZES.h5 }}>
                                     <View style={styles.iconCircle}>
-                                        <Image source={icons.person} style={{ height: SIZES.h3, width: SIZES.h3 }} />
+                                        <Image source={icons.person} style={{ height: SIZES.h4, width: SIZES.h4 }} />
                                     </View>
-                                    <Text style={{ marginLeft: SIZES.h5, ...FONTS.body4, color: COLORS.black, fontFamily: "Mont-Regular" }}>My Profile</Text>
-                                </View>
+                                    <Text style={{ marginLeft: SIZES.h5, ...FONTS.body4, color: COLORS.primary, fontFamily: "Mont-Regular" }}>{item.title}</Text>
+                                </TouchableOpacity>
                             )
                         }}
                     />
@@ -48,17 +50,21 @@ const MoreScreen = () => {
     }
     return (
         <View style={styles.page}>
-            <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+            <View style={{ flexDirection: 'row', alignItems: 'center', marginBottom: SIZES.h3 }}>
                 <Image source={images.avatar2} style={{ height: SIZES.h1 * 2.5, width: SIZES.h1 * 2.5, }} />
                 <View style={{ marginLeft: SIZES.h5 }}>
-                    <Text style={{ ...FONTS.body4, color: COLORS.black, fontFamily: "Mont-Regulars" }}>Hello!</Text>
-                    <Text style={{ ...FONTS.body4, color: COLORS.black }}>Good Afternoon</Text>
+                    <Text style={{ ...FONTS.body4, color: COLORS.primary, fontFamily: "Mont-Regulars" }}>Hello!</Text>
+                    <Text style={{ ...FONTS.body5, color: COLORS.primary, }}>Good Afternoon</Text>
                 </View>
             </View>
 
             {/* OTHER DETAILS */}
             <View>
-                <RenderTemplate title="Account" />
+                <RenderTemplate title="Account" data={accountData} />
+                <RenderTemplate title="Security" data={securityData} />
+                <RenderTemplate title="Help" data={helpData} />
+                <RenderTemplate data={otherData} />
+
             </View>
 
         </View>
@@ -75,8 +81,8 @@ const styles = StyleSheet.create({
         paddingTop: SIZES.h3
     },
     iconCircle: {
-        height: SIZES.h1 * 1.3,
-        width: SIZES.h1 * 1.3,
+        height: SIZES.h1 * 1.2,
+        width: SIZES.h1 * 1.2,
         borderRadius: 100,
         borderWidth: 1,
         justifyContent: 'center',
@@ -85,6 +91,7 @@ const styles = StyleSheet.create({
     minCtn: {
         paddingVertical: SIZES.h4,
         borderWidth: 1,
+        borderColor: COLORS.primary,
         borderRadius: SIZES.base,
         paddingHorizontal: SIZES.h3 * 0.8
     },
