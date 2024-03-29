@@ -1,8 +1,10 @@
 import { Image, StyleSheet, Text, View, TouchableOpacity, TextInput } from 'react-native'
 import React from 'react'
 import { COLORS, SIZES, icons, images, FONTS } from '../../../constants'
+import { useNavigation } from '@react-navigation/native'
 
 const HomeScreen = () => {
+    const navigation = useNavigation();
     return (
         <View style={{ flex: 1, backgroundColor: COLORS.white, paddingTop: SIZES.base, }}>
             <View style={styles.topCtn}>
@@ -12,7 +14,7 @@ const HomeScreen = () => {
                     <TouchableOpacity style={{ marginRight: SIZES.h1 }}>
                         <Image source={icons.search} style={{ height: SIZES.h3, width: SIZES.h3 }} />
                     </TouchableOpacity>
-                    <TouchableOpacity>
+                    <TouchableOpacity onPress={() => navigation.navigate("FriendRequest")}>
                         <Image source={icons.person} style={{ height: SIZES.h3, width: SIZES.h3 }} />
                     </TouchableOpacity>
                 </View>
