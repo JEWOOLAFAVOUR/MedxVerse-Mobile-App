@@ -15,6 +15,7 @@ export const more = require('../assets/icons/more.png')
 export const notification = require('../assets/icons/notification.png')
 export const person = require('../assets/icons/person.png')
 export const search = require('../assets/icons/search.png')
+export const setting = require('../assets/icons/setting.png')
 export const verticalmenu = require('../assets/icons/verticalmenu.png')
 
 export default {
@@ -35,5 +36,6 @@ export default {
     notification,
     person,
     search,
+    setting,
     verticalmenu,
 }

@@ -11,7 +11,7 @@ const HomeScreen = () => {
                 <Image source={images.avatar1} style={{ height: SIZES.h1 * 1.5, width: SIZES.h1 * 1.5 }} />
                 <Image source={images.logo2} style={{ height: SIZES.h1 * 1.4, width: SIZES.h1 * 1.4 }} />
                 <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-                    <TouchableOpacity style={{ marginRight: SIZES.h1 }}>
+                    <TouchableOpacity onPress={() => navigation.navigate("SearchScreen")} style={{ marginRight: SIZES.h1 }}>
                         <Image source={icons.search} style={{ height: SIZES.h3, width: SIZES.h3 }} />
                     </TouchableOpacity>
                     <TouchableOpacity onPress={() => navigation.navigate("FriendRequest")}>

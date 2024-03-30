@@ -51,7 +51,7 @@ const MessageScreen = () => {
                     data={messageData}
                     renderItem={({ item }) => {
                         return (
-                            <View style={styles.chatCtn}>
+                            <TouchableOpacity onPress={() => navigation.navigate('ChatScreen')} style={styles.chatCtn}>
                                 <Image source={images.avatar1} style={{ height: SIZES.h1 * 1.6, width: SIZES.h1 * 1.6, borderRadius: 100, }} />
                                 <View style={{ flex: 1, marginLeft: SIZES.base * 1.3 }}>
                                     <Text style={{ ...FONTS.body4b, color: COLORS.black, fontFamily: "Mont-Regular" }}>{item.title}</Text>
@@ -65,7 +65,7 @@ const MessageScreen = () => {
                                         </View>
                                     }
                                 </View>
-                            </View>
+                            </TouchableOpacity>
                         )
                     }}
                 />

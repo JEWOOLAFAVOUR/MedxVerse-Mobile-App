@@ -19,6 +19,7 @@ export const COLORS = {
     secondary: "",
     green: "#2BC652",
     fade: "#DADAFF",
+    fade2: "#F6F6F8",
     chocolate: '#5d5c6c',
     chocolateBackground: '#CECFCD',
 };

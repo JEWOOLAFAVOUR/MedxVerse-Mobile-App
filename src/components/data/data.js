@@ -20,3 +20,14 @@ export const forumData = [
     { id: 2, title: "We miss Buhari", message: "Buhari was once a Nigeria president", time: "16:12", },
     { id: 3, title: "Endpolicebrutality", message: "#Endpolicebrutality✊🏾✊🏾", time: "15:37", },
 ];
+
+export const suggestionSearchData = [
+    { id: 1, title: "Adeola Adetayo", detail: "User" },
+    { id: 2, title: "We miss buhari", detail: "Forum" },
+    { id: 3, title: "Medxlearn introduce", detail: "Post" },
+];
+
+export const searchHistoryData = [
+    { id: 1, title: "Olalekan Ajayi", detail: "Friends" },
+    { id: 2, title: "3D modeling", detail: "Post" },
+];
