@@ -25,6 +25,7 @@ const styles = StyleSheet.create({
     },
     text: {
         ...FONTS.body4,
-        color: COLORS.white
+        color: COLORS.white,
+        fontFamily: "Mont-Regular",
     },
 })

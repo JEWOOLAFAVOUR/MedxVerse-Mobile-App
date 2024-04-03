@@ -43,9 +43,9 @@ const CreateAccount = ({ route }) => {
             <View style={{ marginTop: SIZES.h1 }}>
                 <Text style={{ ...FONTS.h2, color: COLORS.primary }}>Create account</Text>
                 <View style={{ flexDirection: 'row', alignItems: 'center', marginTop: SIZES.h5 }}>
-                    <Text style={{ ...FONTS.body4, }}>Already with MedXVerse?</Text>
+                    <Text style={{ ...FONTS.body4, fontFamily: "Mont-Regular" }}>Already with MedXVerse?</Text>
                     <TouchableOpacity onPress={() => navigation.navigate('Login')}>
-                        <Text style={{ textDecorationLine: 'underline', ...FONTS.body4, color: COLORS.primary }}> Sign in</Text>
+                        <Text style={{ textDecorationLine: 'underline', ...FONTS.body4, color: COLORS.primary, fontFamily: "Mont-Regular" }}> Sign in</Text>
                     </TouchableOpacity>
                 </View>
             </View>

@@ -25,7 +25,7 @@ const VerifyOtp = () => {
                     <Text style={{ ...FONTS.h2, color: COLORS.primary, marginTop: SIZES.base }}>Check your Email! To input your OTP.</Text>
                 </View>
                 <View style={{ flexDirection: 'row', alignItems: 'center', marginTop: SIZES.h5 }}>
-                    <Text style={{ ...FONTS.body5, }}>We have sent an OTP code to your email.</Text>
+                    <Text style={{ ...FONTS.body5, fontFamily: "Mont-Regular" }}>We have sent an OTP code to your email.</Text>
                 </View>
             </View>
             {/* INPUT */}

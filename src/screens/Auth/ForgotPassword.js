@@ -23,7 +23,7 @@ const ForgotPassword = () => {
                     <Text style={{ ...FONTS.h2, color: COLORS.primary, marginTop: SIZES.base }}>Forget password! Enter your email</Text>
                 </View>
                 <View style={{ flexDirection: 'row', alignItems: 'center', marginTop: SIZES.h5 }}>
-                    <Text style={{ ...FONTS.body5, }}>Enter the email associated with your account and we'll send a verification code to your email.</Text>
+                    <Text style={{ ...FONTS.body5, fontFamily: "Mont-Regular" }}>Enter the email associated with your account and we'll send a verification code to your email.</Text>
                 </View>
             </View>
             {/* INPUT */}
@@ -32,7 +32,7 @@ const ForgotPassword = () => {
             </View>
 
             {/* BUTTON */}
-            <FormButton title="Forget password" onPress={() => navigation.navigate("VerifyOtp")} />
+            <FormButton title="Forgot password" onPress={() => navigation.navigate("VerifyOtp")} />
         </ScrollView>
     )
 }

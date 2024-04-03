@@ -33,9 +33,9 @@ const Login = () => {
             <View style={{ marginTop: SIZES.h1 }}>
                 <Text style={{ ...FONTS.h2, color: COLORS.primary }}>Sign In</Text>
                 <View style={{ flexDirection: 'row', alignItems: 'center', marginTop: SIZES.h5 }}>
-                    <Text style={{ ...FONTS.body4, }}>Don't have an account?</Text>
+                    <Text style={{ ...FONTS.body4, fontFamily: "Mont-Regular" }}>Don't have an account?</Text>
                     <TouchableOpacity onPress={() => navigation.navigate('CreateAccount')}>
-                        <Text style={{ textDecorationLine: 'underline', ...FONTS.body4, color: COLORS.primary }}> Create Account</Text>
+                        <Text style={{ textDecorationLine: 'underline', ...FONTS.body4, color: COLORS.primary, fontFamily: "Mont-Regular" }}> Create Account</Text>
                     </TouchableOpacity>
                 </View>
             </View>
@@ -51,7 +51,7 @@ const Login = () => {
                 btnStyle={{ marginTop: SIZES.h1 }} />
             {/* FOOTER */}
             <View style={{ marginTop: SIZES.h1 }}>
-                <Text style={{ ...FONTS.body4, color: COLORS.primary, textAlign: 'center' }}>Create Account with</Text>
+                <Text style={{ ...FONTS.body4, color: COLORS.primary, textAlign: 'center', fontFamily: "Mont-Regular" }}>Create Account with</Text>
                 <View style={{ flexDirection: 'row', alignItems: "center", justifyContent: 'space-around', marginTop: SIZES.h2 }}>
                     <Image source={icons.apple} style={{ height: SIZES.h1 * 1.11, width: SIZES.h1 }} />
                     <Image source={icons.google} style={{ height: SIZES.h1, width: SIZES.h1 }} />

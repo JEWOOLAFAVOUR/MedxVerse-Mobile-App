@@ -24,7 +24,7 @@ const CreateAccountPassword = () => {
                     <Text style={{ ...FONTS.h2, color: COLORS.primary, marginLeft: SIZES.h3 }}>Create Password</Text>
                 </View>
                 <View style={{ flexDirection: 'row', alignItems: 'center', marginTop: SIZES.h5 }}>
-                    <Text style={{ ...FONTS.body4, }}>Used a well protected details as your password</Text>
+                    <Text style={{ ...FONTS.body4, fontFamily: "Mont-Regular" }}>Used a well protected details as your password</Text>
                 </View>
             </View>
             {/* INPUT */}
@@ -49,7 +49,7 @@ const styles = StyleSheet.create({
     page: {
         flex: 1,
         backgroundColor: COLORS.white,
-        paddingHorizontal: SIZES.width * 0.04,
+        paddingHorizontal: SIZES.width * 0.05,
         paddingTop: SIZES.h4,
     },
 })
