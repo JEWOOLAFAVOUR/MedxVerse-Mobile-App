@@ -8,7 +8,7 @@ const AuthHeader = ({ title }) => {
     return (
         <View style={styles.container}>
             <TouchableOpacity onPress={() => navigation.goBack()}>
-                <Image source={icons.arrowleft} style={{ height: SIZES.h3, width: SIZES.h3, tintColor: COLORS.orange }} />
+                <Image source={icons.arrowleft} style={{ height: SIZES.h3, width: SIZES.h3, tintColor: COLORS.primary }} />
             </TouchableOpacity>
             <View>
                 <Text style={{ ...FONTS.h1a, fontFamily: "Urbanist-Medium", color: COLORS.primary, marginTop: SIZES.h1, }}>{title}</Text>
