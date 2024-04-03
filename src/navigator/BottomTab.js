@@ -27,7 +27,7 @@ const BottomTab = () => {
                     backgroundColor: COLORS.white,
                     borderTopWidth: 1,
                 },
-                tabBarLabel: ({ focused }) => <Text style={{ fontSize: SIZES.body5, color: focused ? COLORS.primary : COLORS.black, marginBottom: 5 }}>{route.name}</Text>,
+                tabBarLabel: ({ focused }) => <Text style={{ fontSize: SIZES.body5, color: focused ? COLORS.primary : COLORS.black, marginBottom: 6, opacity: focused ? 1 : 0.6 }}>{route.name}</Text>,
                 tabBarIcon: ({ focused, size, colour }) => {
                     let iconName;
                     if (route.name === 'Home') {
@@ -48,10 +48,10 @@ const BottomTab = () => {
                             colour = focused ? COLORS.secondary : COLORS.primary
                     } else if (route.name === 'More') {
                         iconName = focused ? icons.menu2 : icons.menu2
-                        size = focused ? SIZES.h3 : SIZES.h3,
+                        size = focused ? SIZES.h3 * 1.2 : SIZES.h3 * 1.2,
                             colour = focused ? COLORS.secondary : COLORS.primary
                     }
-                    return <Image source={iconName} style={{ height: size, width: size, tintColor: colour, opacity: focused ? 1 : 0.8 }} />
+                    return <Image source={iconName} style={{ height: size, width: size, tintColor: colour, opacity: focused ? 1 : 0.6 }} />
                 },
                 headerShown: false
             })}
