@@ -16,7 +16,7 @@ export const COLORS = {
     black3: "#444444",
     primary: "#272662",
     dark: "#99A1BE",
-    secondary: "#000000",
+    secondary: "#272662",
     green: "#2BC652",
     fade: "#DADAFF",
     fade2: "#F6F6F8",

@@ -3,6 +3,7 @@ export const apple = require('../assets/icons/apple.png')
 export const arrowleft = require('../assets/icons/arrowleft.png')
 export const arrowleft2 = require('../assets/icons/arrowleft2.png')
 export const arrowright = require('../assets/icons/arrowright.png')
+export const bell2 = require('../assets/icons/bell2.png')
 export const care = require('../assets/icons/care.png')
 export const comment = require('../assets/icons/comment.png')
 export const eyeclose = require('../assets/icons/eyeclose.png')
@@ -13,6 +14,7 @@ export const hash = require('../assets/icons/hash.png')
 export const home = require('../assets/icons/home.png')
 export const horizontalmenu = require('../assets/icons/horizontalmenu.png')
 export const love = require('../assets/icons/love.png')
+export const menu2 = require('../assets/icons/menu2.png')
 export const message = require('../assets/icons/message.png')
 export const more = require('../assets/icons/more.png')
 export const notification = require('../assets/icons/notification.png')
@@ -33,6 +35,7 @@ export default {
     arrowleft,
     arrowleft2,
     arrowright,
+    bell2,
     care,
     comment,
     eyeclose,
@@ -43,6 +46,7 @@ export default {
     home,
     horizontalmenu,
     love,
+    menu2,
     message,
     more,
     notification,
