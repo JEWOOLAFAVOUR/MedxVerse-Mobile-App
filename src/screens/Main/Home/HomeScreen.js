@@ -32,6 +32,8 @@ const HomeScreen = () => {
                 {/* CONTENT */}
                 <FlatList
                     data={['', '', '']}
+                    contentContainerStyle={{ paddingBottom: SIZES.h1 * 4.5 }}
+                    showsVerticalScrollIndicator={false}
                     renderItem={({ item }) => {
                         return (
                             <View style={styles.container}>
@@ -139,7 +141,7 @@ const styles = StyleSheet.create({
         backgroundColor: COLORS.white,
         paddingVertical: SIZES.h3,
         borderRadius: SIZES.h3,
-        marginBottom: SIZES.h4,
+        marginBottom: SIZES.h3,
     },
     reactionCtn: {
         height: SIZES.h1 * 1.4,
