@@ -23,7 +23,7 @@ const HomeScreen = () => {
             </View>
             <View style={{ height: 1, backgroundColor: COLORS.fade, marginTop: SIZES.h3, marginBottom: SIZES.h5 }} />
             {/* SEARCH */}
-            <View style={{ paddingHorizontal: SIZES.width * 0.05, }}>
+            <View style={{ paddingHorizontal: SIZES.width * 0.03, }}>
                 <View style={styles.searchCtn}>
                     <Text style={{ ...FONTS.body5, color: COLORS.black2 }}>What is on your mind, Hashem?</Text>
                 </View>
@@ -31,7 +31,7 @@ const HomeScreen = () => {
 
                 {/* CONTENT */}
                 <FlatList
-                    data={['',]}
+                    data={['', '', '']}
                     renderItem={({ item }) => {
                         return (
                             <View style={styles.container}>
@@ -53,7 +53,7 @@ const HomeScreen = () => {
                                     {
                                         pics.map((data, index) => {
                                             return (
-                                                <View>
+                                                <View key={index}>
                                                     <Image source={images.pic1} style={{ height: SIZES.height * 0.29, width: SIZES.width * 0.27, borderRadius: SIZES.h5 }} />
                                                 </View>
                                             )
@@ -61,7 +61,50 @@ const HomeScreen = () => {
                                     }
                                 </View>
                                 {/* LIKES */}
-                                <Text style={{ ...FONTS.body5, color: COLORS.primary }}>3.4k Comments 46 Shares</Text>
+                                <Text style={{ ...FONTS.body5, color: COLORS.primary, marginBottom: SIZES.base * 0.8 }}>3.4k Comments 46 Shares</Text>
+                                {/* REACTIONS */}
+                                <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+                                    <View style={{ flexDirection: 'row', alignItems: 'center', flex: 1 }}>
+                                        <TouchableOpacity style={styles.reactionCtn}>
+                                            <Image source={icons.thumb2} style={{ height: SIZES.h4 * 1.2, width: SIZES.h4 * 1.2 }} />
+                                        </TouchableOpacity>
+                                        <TouchableOpacity style={styles.reactionCtn}>
+                                            <Image source={icons.comment} style={{ height: SIZES.h4 * 1.2, width: SIZES.h4 * 1.2 }} />
+                                        </TouchableOpacity>
+                                        <TouchableOpacity style={styles.reactionCtn}>
+                                            <Image source={icons.share} style={{ height: SIZES.h4 * 1.2, width: SIZES.h4 * 1.2 }} />
+                                        </TouchableOpacity>
+                                    </View>
+                                    {/* OTHER REACTIONS */}
+                                    <View style={{ flexDirection: 'row', alignItems: 'center', }}>
+                                        <Text style={{ fontSize: SIZES.base * 1.1, fontFamily: "Mont-Light", color: COLORS.primary, marginRight: SIZES.base * 0.9 }}>Q&A with Mark & 361k others</Text>
+                                        <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+                                            <Image source={icons.love} style={{ height: SIZES.h3, width: SIZES.h3 }} />
+                                            <Image source={icons.thumb} style={{ height: SIZES.h3, width: SIZES.h3 }} />
+                                            <Image source={icons.care} style={{ height: SIZES.h3, width: SIZES.h3 }} />
+                                        </View>
+                                    </View>
+                                </View>
+                                {/* ONE COMMENTS */}
+                                <View style={{ height: 2, backgroundColor: "#F1F4F5", marginVertical: SIZES.h4 }} />
+                                {/* COMMENTS */}
+                                <View style={{ flexDirection: 'row', }}>
+                                    <Image source={images.avatar1} style={{ height: SIZES.h1 * 1.3, width: SIZES.h1 * 1.3, borderRadius: 100 }} />
+                                    <View style={{ marginLeft: SIZES.h5 }}>
+                                        <Text style={{ ...FONTS.h4, color: COLORS.primary, }}>Mark Ramos</Text>
+                                        <Text style={{ fontSize: SIZES.body4 * 0.9, fontFamily: "Mont-Light", color: COLORS.primary, }}>Greate work! Well done girl.</Text>
+                                        <View style={{ marginTop: SIZES.h5, flexDirection: 'row', alignItems: 'center' }}>
+                                            <TouchableOpacity style={{ marginRight: SIZES.h4 }}>
+                                                <Text style={{ ...FONTS.body4b, color: COLORS.primary, fontFamily: "Mont-Regular" }}>Like</Text>
+                                            </TouchableOpacity>
+                                            <TouchableOpacity style={{ marginRight: SIZES.h4 }}>
+                                                <Text style={{ ...FONTS.body4b, color: COLORS.primary, fontFamily: "Mont-Regular" }}>Reply</Text>
+                                            </TouchableOpacity>
+                                            <Text style={{ ...FONTS.body4b, color: COLORS.primary, fontFamily: "Mont-Regular" }}>2m</Text>
+                                        </View>
+                                    </View>
+                                    {/* <Image source={icons.verticalmenu2} style={{ height: SIZES.h4, width: SIZES.h4 }} /> */}
+                                </View>
                             </View>
                         )
                     }}
@@ -95,6 +138,16 @@ const styles = StyleSheet.create({
         paddingHorizontal: SIZES.width * 0.03,
         backgroundColor: COLORS.white,
         paddingVertical: SIZES.h3,
-        // elevation: 2,
+        borderRadius: SIZES.h3,
+        marginBottom: SIZES.h4,
+    },
+    reactionCtn: {
+        height: SIZES.h1 * 1.4,
+        width: SIZES.h1 * 1.4,
+        borderRadius: 100,
+        backgroundColor: COLORS.fade,
+        justifyContent: 'center',
+        alignItems: 'center',
+        marginRight: SIZES.base,
     },
 })

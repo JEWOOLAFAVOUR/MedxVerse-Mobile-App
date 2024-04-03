@@ -24,6 +24,7 @@ export const share = require('../assets/icons/share.png')
 export const thumb = require('../assets/icons/thumb.png')
 export const thumb2 = require('../assets/icons/thumb2.png')
 export const verticalmenu = require('../assets/icons/verticalmenu.png')
+export const verticalmenu2 = require('../assets/icons/verticalmenu2.png')
 export const world = require('../assets/icons/world.png')
 
 export default {
@@ -53,5 +54,6 @@ export default {
     thumb,
     thumb2,
     verticalmenu,
+    verticalmenu2,
     world,
 }
