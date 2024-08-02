@@ -3,8 +3,11 @@ export const apple = require('../assets/icons/apple.png')
 export const arrowleft = require('../assets/icons/arrowleft.png')
 export const arrowleft2 = require('../assets/icons/arrowleft2.png')
 export const arrowright = require('../assets/icons/arrowright.png')
+export const behance = require('../assets/icons/behance.png')
 export const bell2 = require('../assets/icons/bell2.png')
+export const camera = require('../assets/icons/camera.png')
 export const care = require('../assets/icons/care.png')
+export const check = require('../assets/icons/check.png')
 export const comment = require('../assets/icons/comment.png')
 export const eyeclose = require('../assets/icons/eyeclose.png')
 export const facebook = require('../assets/icons/facebook.png')
@@ -35,8 +38,11 @@ export default {
     arrowleft,
     arrowleft2,
     arrowright,
+    behance,
     bell2,
+    camera,
     care,
+    check,
     comment,
     eyeclose,
     facebook,

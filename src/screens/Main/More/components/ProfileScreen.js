@@ -1,6 +1,6 @@
 import { Image, StyleSheet, Text, View } from 'react-native'
 import React from 'react'
-import { COLORS, FONTS, icons, SIZES } from '../../../../constants'
+import { COLORS, FONTS, icons, images, SIZES } from '../../../../constants'
 
 const ProfileScreen = () => {
     return (
@@ -13,7 +13,10 @@ const ProfileScreen = () => {
                     </View>
                     <Image source={icons.care} style={{ height: SIZES.h3, width: SIZES.h3 }} />
                 </View>
-
+                {/* PROFILE PIC */}
+                <View>
+                    <Image source={images.avatar2} />
+                </View>
 
             </View>
 

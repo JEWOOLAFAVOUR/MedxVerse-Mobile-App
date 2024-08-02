@@ -6,7 +6,7 @@ import { useNavigation } from '@react-navigation/native'
 const MoreScreen = () => {
     const navigation = useNavigation();
     const accountData = [
-        { id: 1, title: "My Profile", iconName: icons.person, onPress: () => navigation.navigate('') },
+        { id: 1, title: "My Profile", iconName: icons.person, onPress: () => navigation.navigate('ProfileScreen') },
     ]
 
     const securityData = [
@@ -35,7 +35,7 @@ const MoreScreen = () => {
                         data={data}
                         renderItem={({ item }) => {
                             return (
-                                <TouchableOpacity style={{ flexDirection: 'row', alignItems: 'center', marginBottom: SIZES.h5 }}>
+                                <TouchableOpacity onPress={item?.onPress} style={{ flexDirection: 'row', alignItems: 'center', marginBottom: SIZES.h5 }}>
                                     <View style={styles.iconCircle}>
                                         <Image source={icons.person} style={{ height: SIZES.h4, width: SIZES.h4 }} />
                                     </View>
