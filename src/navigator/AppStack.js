@@ -6,6 +6,7 @@ import ForumScreen from '../screens/Main/Message/components/ForumScreen';
 import FriendRequest from '../screens/Main/Home/components/FriendRequest';
 import SearchScreen from '../screens/Main/Home/components/SearchScreen';
 import ChatScreen from '../screens/Main/Message/components/ChatScreen';
+import ProfileScreen from '../screens/Main/More/components/ProfileScreen';
 
 
 const AppStack = () => {
@@ -20,6 +21,10 @@ const AppStack = () => {
             {/* MESSAGE */}
             <Stack.Screen name='ForumScreen' component={ForumScreen} />
             <Stack.Screen name='ChatScreen' component={ChatScreen} />
+
+            {/* MORE */}
+            <Stack.Screen name='ProfileScreen' component={ProfileScreen} />
+
         </Stack.Navigator>
 
 
