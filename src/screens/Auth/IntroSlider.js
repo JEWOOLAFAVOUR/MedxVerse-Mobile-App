@@ -34,7 +34,7 @@ const IntroSlider = ({ ...props }) => {
     const _renderItem = ({ item }) => {
         return (
             <View style={{ paddingTop: SIZES.h2, }}>
-                <View style={{ paddingHorizontal: SIZES.width * 0.03, marginBottom: SIZES.h1 * 3 }}>
+                <View style={{ paddingHorizontal: SIZES.width * 0.03, marginBottom: SIZES.h1 * 2.5 }}>
                     <TouchableOpacity style={styles.skipCtn}>
                         <Text style={{ ...FONTS.body4b, color: COLORS.primary }}>skip</Text>
                     </TouchableOpacity>
