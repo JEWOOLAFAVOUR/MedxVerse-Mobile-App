@@ -1,6 +1,8 @@
 export const avatar1 = require('../assets/images/avatar1.png')
 export const avatar2 = require('../assets/images/avatar2.png')
 export const avatar3 = require('../assets/images/avatar3.png')
+export const background = require('../assets/images/background.png')
+export const friend = require('../assets/images/friend.png')
 export const logo1 = require('../assets/images/logo1.png')
 export const logo2 = require('../assets/images/logo2.png')
 export const nigeriaflag = require('../assets/images/nigeriaflag.png')
@@ -18,6 +20,8 @@ export default {
     avatar1,
     avatar2,
     avatar3,
+    background,
+    friend,
     logo1,
     logo2,
     nigeriaflag,
