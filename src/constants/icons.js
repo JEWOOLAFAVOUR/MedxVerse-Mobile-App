@@ -2,7 +2,9 @@ export const about = require('../assets/icons/about.png')
 export const apple = require('../assets/icons/apple.png')
 export const arrowleft = require('../assets/icons/arrowleft.png')
 export const arrowleft2 = require('../assets/icons/arrowleft2.png')
+export const arrowleft3 = require('../assets/icons/arrowleft3.png')
 export const arrowright = require('../assets/icons/arrowright.png')
+export const arrowright3 = require('../assets/icons/arrowright3.png')
 export const behance = require('../assets/icons/behance.png')
 export const bell2 = require('../assets/icons/bell2.png')
 export const camera = require('../assets/icons/camera.png')
@@ -37,7 +39,9 @@ export default {
     apple,
     arrowleft,
     arrowleft2,
+    arrowleft3,
     arrowright,
+    arrowright3,
     behance,
     bell2,
     camera,

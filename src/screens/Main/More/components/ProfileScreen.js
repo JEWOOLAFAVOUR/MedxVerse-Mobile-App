@@ -178,4 +178,20 @@ const styles = StyleSheet.create({
         backgroundColor: COLORS.primary,
         borderRadius: SIZES.base,
     },
+    container: {
+        paddingHorizontal: SIZES.width * 0.03,
+        backgroundColor: COLORS.white,
+        paddingVertical: SIZES.h3,
+        borderRadius: SIZES.h3,
+        marginBottom: SIZES.h3,
+    },
+    reactionCtn: {
+        height: SIZES.h1 * 1.4,
+        width: SIZES.h1 * 1.4,
+        borderRadius: 100,
+        backgroundColor: COLORS.fade,
+        justifyContent: 'center',
+        alignItems: 'center',
+        marginRight: SIZES.base,
+    },
 });

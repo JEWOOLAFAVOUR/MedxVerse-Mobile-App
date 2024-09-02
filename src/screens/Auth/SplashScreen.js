@@ -19,12 +19,12 @@ const SplashScreen = () => {
         } else if (onboard) {
             setTimeout(() => {
                 // navigation.replace('VerifyNumber')
-                // navigation.replace('IntroSlider')
-                navigation.replace('CreateAccount')
+                navigation.replace('IntroSlider')
+                // navigation.replace('CreateAccount')
             }, 2000);
         } else {
             setTimeout(() => {
-                navigation.replace('CreateAccount');
+                navigation.replace('IntroSlider');
             }, 1000);
         }
     }
