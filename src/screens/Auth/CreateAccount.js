@@ -14,13 +14,13 @@ const CreateAccount = ({ route }) => {
     const navigation = useNavigation();
     const dispatch = useDispatch();
 
-    const [firstName, setFirstName] = useState('')
-    const [lastName, setLastName] = useState('')
-    const [email, setEmail] = useState('')
-
+    const [firstname, setFirstName] = useState('');
+    const [lastname, setLastName] = useState('');
+    const [email, setEmail] = useState('');
+    const [username, setUsername] = useState('');
 
     const handleSubmit = () => {
-        const body = { firstName, lastName, email }
+        const body = { firstname, lastname, email }
         const securityErrors = makeSecurity('register', body);
 
         if (securityErrors.length > 0) {
@@ -51,10 +51,24 @@ const CreateAccount = ({ route }) => {
             </View>
             {/* INPUT */}
             <View style={{ marginTop: SIZES.h1, marginBottom: SIZES.h2 }}>
-                <FormInput title="Name" placeholder="John Doe" />
-                <FormInput title="Email" placeholder="johndoe@gmail.com" />
-                <FormInput title="Phone number" placeholder="080123456789" />
-                <FormInput title="Display Name" placeholder="JohnDoe" />
+                <FormInput
+                    title="Name"
+                    placeholder="John Doe"
+                    value={firstname}
+                    setValue={setFirstName}
+                />
+                <FormInput
+                    title="Email"
+                    placeholder="johndoe@gmail.com"
+                    value={email}
+                    setValue={setEmail}
+                />
+                <FormInput
+                    title="Display Name"
+                    placeholder="JohnDoe"
+                    value={username}
+                    setValue={setUsername}
+                />
             </View>
             {/* BUTTON */}
             <FormButton title="Create Account" onPress={() => navigation.navigate('CreateAccountPassword')} />

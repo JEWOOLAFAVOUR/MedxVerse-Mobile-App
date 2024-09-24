@@ -41,8 +41,18 @@ const Login = () => {
             </View>
             {/* INPUT */}
             <View style={{ marginTop: SIZES.h1, marginBottom: SIZES.h2 }}>
-                <FormInput title="Email" placeholder="John Doe" />
-                <FormInput title="Password" placeholder="johndoe@gmail.com" eyeoff={true} />
+                <FormInput title="Email"
+                    placeholder="John Doe"
+                    value={email}
+                    setValue={setEmail}
+                />
+                <FormInput
+                    title="Password"
+                    placeholder="johndoe@gmail.com"
+                    eyeoff={true}
+                    value={password}
+                    setValue={setPassword}
+                />
             </View>
             {/* BUTTON */}
 
