@@ -21,30 +21,41 @@ const makeApiRequest = async (method, endpoint, data) => {
 
 
 export const registerUser = async (data) => {
-    const response = await makeApiRequest('POST', '/auth/register', data);
+    const response = await makeApiRequest('POST', '/user/register', data);
     return response;
 };
 
 export const loginUser = async (data) => {
-    console.log('lll', data)
-    const response = await makeApiRequest('POST', '/auth/login', data);
+    const response = await makeApiRequest('POST', '/user/login', data);
     return response;
 };
 
 export const verifyEmail = async (data) => {
-    console.log('lll', data)
-    const response = await makeApiRequest('POST', '/auth/verify-email-account', data);
+    const response = await makeApiRequest('POST', '/user/verify', data);
     return response;
 };
 
-export const requestEmail = async (data) => {
-    console.log('lll', data)
-    const response = await makeApiRequest('POST', '/auth/request-email-verification', data);
+export const resendOtp = async (data) => {
+    const response = await makeApiRequest('POST', '/user/resend', data);
     return response;
 };
 
 export const forgetPassword = async (data) => {
-    console.log('lll', data)
-    const response = await makeApiRequest('POST', '/auth/request-reset-password', data);
+    const response = await makeApiRequest('POST', '/user/forgot', data);
+    return response;
+};
+
+export const resetPassword = async (data) => {
+    const response = await makeApiRequest('POST', '/user/reset', data);
+    return response;
+};
+
+export const getProfile = async (data) => {
+    const response = await makeApiRequest('GET', '/user/profile', data);
+    return response;
+};
+
+export const editProfile = async (data) => {
+    const response = await makeApiRequest('PUT', '/user/profile', data);
     return response;
 };
