@@ -8,12 +8,26 @@ import { useNavigation } from '@react-navigation/native'
 
 const CreateAccountPassword = () => {
     const navigation = useNavigation();
-    const [phone, setPhone] = useState('')
     const [password, setPassword] = useState('')
+    const [confirmPassword, setConfirmPassword] = useState('');
 
     const handleSubmit = () => {
-        navigation.navigate("VerifyOtp")
+        const body = { password, }
+        const securityErrors = makeSecurity('register', body);
+
+        if (securityErrors.length > 0) {
+            sendToast('error', securityErrors[0]);
+            console.log('erroo', securityErrors[0]);
+            return;
+        }
+        try {
+            dispatch(updateUserAuthDetails({ ...body }))
+            navigation.navigate("CreateAccountPassword")
+        } catch (error) {
+            sendToast('error', error.message);
+        }
     }
+
     return (
         <ScrollView style={styles.page}>
             <View style={{ marginTop: SIZES.h1 }}>
@@ -29,8 +43,20 @@ const CreateAccountPassword = () => {
             </View>
             {/* INPUT */}
             <View style={{ marginTop: SIZES.h1, marginBottom: SIZES.h4 }}>
-                <FormInput title="Password" placeholder="john@1234" eyeoff={true} />
-                <FormInput title="Confirm Password" placeholder="john@1234" eyeoff={true} />
+                <FormInput
+                    title="Password"
+                    placeholder="john@1234"
+                    eyeoff={true}
+                    value={password}
+                    setValue={setPassword}
+                />
+                <FormInput
+                    title="Confirm Password"
+                    placeholder="john@1234"
+                    eyeoff={true}
+                    value={confirmPassword}
+                    setValue={setConfirmPassword}
+                />
             </View>
             {/* REGULATORS */}
             <View style={{ marginBottom: SIZES.h1 * 2.3 }}>
@@ -38,7 +64,7 @@ const CreateAccountPassword = () => {
                 <Text style={{ fontFamily: "Mont-Regular", fontSize: SIZES.h5, color: COLORS.primary }}>- For security purposes, avoid using common words or phrases as your password.</Text>
             </View>
             {/* BUTTON */}
-            <FormButton title="Create Password" />
+            <FormButton title="Create Password" onPress={() => handleSubmit()} />
         </ScrollView>
     )
 }
