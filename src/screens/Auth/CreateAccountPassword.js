@@ -5,9 +5,12 @@ import AuthHeader from '../../components/Header/AuthHeader'
 import FormInput from '../../components/Input/FormInput'
 import FormButton from '../../components/Button/FormButton'
 import { useNavigation } from '@react-navigation/native'
+import { useSelector } from 'react-redux'
 
 const CreateAccountPassword = () => {
     const navigation = useNavigation();
+    const user = useSelector(state => state.auth.userAuth);
+
     const [password, setPassword] = useState('')
     const [confirmPassword, setConfirmPassword] = useState('');
 
