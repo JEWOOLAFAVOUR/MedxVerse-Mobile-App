@@ -20,7 +20,7 @@ const CreateAccount = ({ route }) => {
     const [username, setUsername] = useState('');
 
     const handleSubmit = () => {
-        const body = { firstname, lastname, email }
+        const body = { firstname, lastname, email, username }
         const securityErrors = makeSecurity('register', body);
 
         if (securityErrors.length > 0) {
@@ -52,10 +52,16 @@ const CreateAccount = ({ route }) => {
             {/* INPUT */}
             <View style={{ marginTop: SIZES.h1, marginBottom: SIZES.h2 }}>
                 <FormInput
-                    title="Name"
+                    title="First Name"
                     placeholder="John Doe"
                     value={firstname}
                     setValue={setFirstName}
+                />
+                <FormInput
+                    title="Last Name"
+                    placeholder="John Doe"
+                    value={lastname}
+                    setValue={setLastName}
                 />
                 <FormInput
                     title="Email"
@@ -64,14 +70,14 @@ const CreateAccount = ({ route }) => {
                     setValue={setEmail}
                 />
                 <FormInput
-                    title="Display Name"
+                    title="Username"
                     placeholder="JohnDoe"
                     value={username}
                     setValue={setUsername}
                 />
             </View>
             {/* BUTTON */}
-            <FormButton title="Create Account" onPress={() => navigation.navigate('CreateAccountPassword')} />
+            <FormButton title="Create Account" onPress={() => handleSubmit()} />
             {/* FOOTER */}
             <View style={{ marginTop: SIZES.h1 }}>
                 <Text style={{ ...FONTS.body4, color: COLORS.primary, textAlign: 'center' }}>Create Account with</Text>

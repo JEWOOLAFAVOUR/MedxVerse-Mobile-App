@@ -29,12 +29,12 @@ export const makeSecurity = (type, data) => {
     }
 
     if (type === 'register') {
-        const { email, firstName, lastName } = data;
-        if (!firstName || firstName.trim() === "") {
+        const { email, firstname, lastname } = data;
+        if (!firstname || firstname.trim() === "") {
             errors.push("Enter a Valid FirstName");
         }
 
-        if (!lastName || lastName.trim() === "") {
+        if (!lastname || lastname.trim() === "") {
             errors.push("Enter a Valid LastName");
         }
 
@@ -42,6 +42,10 @@ export const makeSecurity = (type, data) => {
             errors.push("Enter a Valid Email Address");
         } else if (!emailPattern.test(email)) {
             errors.push("Enter a Valid Email Address");
+        }
+
+        if (!username || username.trim() === "") {
+            errors.push("Enter a Valid Username");
         }
     }
 
