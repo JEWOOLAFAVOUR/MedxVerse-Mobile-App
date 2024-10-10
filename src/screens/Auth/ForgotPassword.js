@@ -5,13 +5,28 @@ import AuthHeader from '../../components/Header/AuthHeader'
 import FormInput from '../../components/Input/FormInput'
 import FormButton from '../../components/Button/FormButton'
 import { useNavigation } from '@react-navigation/native'
+import { sendToast } from '../../components/Template/utilis'
+import { forgetPassword } from '../../api/auth'
 
 const ForgotPassword = () => {
     const navigation = useNavigation();
     const [email, setEmail] = useState('')
 
-    const handleSubmit = () => {
-        navigation.navigate('VerifyOtp')
+    const handleSubmit = async () => {
+        const body = { email }
+
+        if (!email || email.trim() === "") {
+            sendToast('error', 'Please enter a valid email')
+        } else {
+            const { status, data } = await forgetPassword()
+
+            if (data?.success === true) {
+                sendToast('success', data?.message)
+            } else {
+                sendToast('error', data?.message)
+            }
+        }
+        // navigation.navigate('VerifyOtp')
     }
     return (
         <ScrollView style={styles.page}>
@@ -28,7 +43,12 @@ const ForgotPassword = () => {
             </View>
             {/* INPUT */}
             <View style={{ marginTop: SIZES.h1, marginBottom: SIZES.h1 * 2 }}>
-                <FormInput title="Email" placeholder="johndoe@gmail.com" />
+                <FormInput
+                    title="Email"
+                    placeholder="johndoe@gmail.com"
+                    value={email}
+                    setValue={setEmail}
+                />
             </View>
 
             {/* BUTTON */}

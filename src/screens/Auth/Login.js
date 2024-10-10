@@ -8,6 +8,7 @@ import { useNavigation } from '@react-navigation/native'
 import { makeSecurity } from '../../components/Template/security'
 import { Roller, sendToast } from '../../components/Template/utilis'
 import FormButton2 from '../../components/Button/FormButton2'
+import { loginUser } from '../../api/auth'
 
 const Login = () => {
     const navigation = useNavigation();
@@ -16,7 +17,7 @@ const Login = () => {
     const [password, setPassword] = useState('')
 
 
-    const handleLogin = () => {
+    const handleSubmit = async () => {
         const body = { email, password }
         const securityErrors = makeSecurity('login', body);
 
@@ -24,6 +25,19 @@ const Login = () => {
             sendToast('error', securityErrors[0]);
             console.log('erroo', securityErrors[0]);
             return;
+        }
+        try {
+            const { status, data } = await loginUser(body);
+
+            if (data?.success === true) {
+                sendToast('success', data?.message)
+            } else {
+                sendToast('error', data?.message)
+            }
+
+            navigation.navigate("Main", { screen: "Bottom" })
+        } catch (error) {
+            console.log('error from login', error)
         }
         // navigation.replace("Main", { screen: "Bottom" });
     };
@@ -56,7 +70,7 @@ const Login = () => {
             </View>
             {/* BUTTON */}
 
-            <FormButton title="Sign In" onPress={() => navigation.navigate("Main", { screen: "Bottom" })} />
+            <FormButton title="Sign In" onPress={() => handleSubmit()} />
             <FormButton2 title="Forgot Password?" onPress={() => navigation.navigate("ForgotPassword")}
                 btnStyle={{ marginTop: SIZES.h1 }} />
             {/* FOOTER */}

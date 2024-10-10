@@ -7,13 +7,27 @@ import FormButton from '../../components/Button/FormButton'
 import { useNavigation } from '@react-navigation/native'
 import ConfirmationCodeField from '../../components/Input/CodeConfirmation'
 import FormButton2 from '../../components/Button/FormButton2'
+import { sendToast } from '../../components/Template/utilis'
+import { verifyEmail } from '../../api/auth'
 
 const VerifyOtp = () => {
     const navigation = useNavigation();
     const [otp, setOtp] = useState('')
 
-    const handleSubmit = () => {
-        navigation.navigate("Login")
+    const handleSubmit = async () => {
+        const body = { otp }
+
+        if (!otp || otp.length < 3) {
+            sendToast('error', 'Invalid Otp')
+        } else {
+            const { data, status } = await verifyEmail();
+
+            if (data?.success === true) {
+                sendToast('error', data?.message)
+            } else {
+                sendToast('error', data?.message)
+            }
+        }
     }
     return (
         <View style={styles.page}>
