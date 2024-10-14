@@ -23,6 +23,7 @@ const ForgotPassword = () => {
 
             if (data?.success === true) {
                 sendToast('success', data?.message)
+                navigation.navigate('VerifyOtp', { email })
             } else {
                 sendToast('error', data?.message)
             }
@@ -54,7 +55,7 @@ const ForgotPassword = () => {
             </View>
 
             {/* BUTTON */}
-            <FormButton title="Forgot password" onPress={() => navigation.navigate("VerifyOtp")} />
+            <FormButton title="Forgot password" onPress={() => handleSubmit()} />
         </ScrollView>
     )
 }
