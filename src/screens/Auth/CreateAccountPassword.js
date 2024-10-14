@@ -6,17 +6,21 @@ import FormInput from '../../components/Input/FormInput'
 import FormButton from '../../components/Button/FormButton'
 import { useNavigation } from '@react-navigation/native'
 import { useSelector } from 'react-redux'
+import { makeSecurity } from '../../components/Template/security'
+import { registerUser } from '../../api/auth'
+import { Roller } from '../../components/Template/utilis'
 
 const CreateAccountPassword = () => {
     const navigation = useNavigation();
-    const user = useSelector(state => state.auth.userAuth);
+    const userAuth = useSelector(state => state?.auth?.userAuth);
+    const [load, setLoad] = useState(false)
 
     const [password, setPassword] = useState('')
     const [confirmPassword, setConfirmPassword] = useState('');
 
-    const handleSubmit = () => {
-        const body = { password, }
-        const securityErrors = makeSecurity('register', body);
+    const handleSubmit = async () => {
+        const body = { password, confirmPassword }
+        const securityErrors = makeSecurity('password', body);
 
         if (securityErrors.length > 0) {
             sendToast('error', securityErrors[0]);
@@ -25,7 +29,9 @@ const CreateAccountPassword = () => {
         }
         try {
             dispatch(updateUserAuthDetails({ ...body }))
-            navigation.navigate("CreateAccountPassword")
+
+            setLoad(true)
+            const { status, data } = await registerUser(userAuth);
         } catch (error) {
             sendToast('error', error.message);
         }
@@ -33,6 +39,7 @@ const CreateAccountPassword = () => {
 
     return (
         <ScrollView style={styles.page}>
+            {load && <Roller visible={load} />}
             <View style={{ marginTop: SIZES.h1 }}>
                 <View style={{ flexDirection: 'row', alignItems: 'center', }}>
                     <TouchableOpacity onPress={() => navigation.goBack()}>

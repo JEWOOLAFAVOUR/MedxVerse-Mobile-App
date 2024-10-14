@@ -7,12 +7,13 @@ import FormButton from '../../components/Button/FormButton'
 import { useNavigation } from '@react-navigation/native'
 import ConfirmationCodeField from '../../components/Input/CodeConfirmation'
 import FormButton2 from '../../components/Button/FormButton2'
-import { sendToast } from '../../components/Template/utilis'
+import { Roller, sendToast } from '../../components/Template/utilis'
 import { verifyEmail } from '../../api/auth'
 
 const VerifyOtp = () => {
     const navigation = useNavigation();
-    const [otp, setOtp] = useState('')
+    const [otp, setOtp] = useState('');
+    const [load, setLoad] = useState(false);
 
     const handleSubmit = async () => {
         const body = { otp }
@@ -31,6 +32,7 @@ const VerifyOtp = () => {
     }
     return (
         <View style={styles.page}>
+            {load && <Roller visible={load} />}
             <View style={{ marginTop: SIZES.h1 }}>
                 <View style={{}}>
                     <TouchableOpacity onPress={() => navigation.goBack()}>

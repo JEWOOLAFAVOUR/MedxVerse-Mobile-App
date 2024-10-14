@@ -5,12 +5,13 @@ import AuthHeader from '../../components/Header/AuthHeader'
 import FormInput from '../../components/Input/FormInput'
 import FormButton from '../../components/Button/FormButton'
 import { useNavigation } from '@react-navigation/native'
-import { sendToast } from '../../components/Template/utilis'
+import { Roller, sendToast } from '../../components/Template/utilis'
 import { forgetPassword } from '../../api/auth'
 
 const ForgotPassword = () => {
     const navigation = useNavigation();
-    const [email, setEmail] = useState('')
+    const [email, setEmail] = useState('');
+    const [load, setLoad] = useState(false);
 
     const handleSubmit = async () => {
         const body = { email }
@@ -30,6 +31,7 @@ const ForgotPassword = () => {
     }
     return (
         <ScrollView style={styles.page}>
+            {load && <Roller visible={load} />}
             <View style={{ marginTop: SIZES.h1 }}>
                 <View style={{}}>
                     <TouchableOpacity onPress={() => navigation.goBack()}>

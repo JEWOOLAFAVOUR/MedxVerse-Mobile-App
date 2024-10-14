@@ -51,7 +51,7 @@ const Login = () => {
 
     return (
         <ScrollView style={styles.page}>
-            <Roller visible={load} />
+            {load && <Roller visible={load} />}
             <View style={{ marginTop: SIZES.h1 }}>
                 <Text style={{ ...FONTS.h2, color: COLORS.primary }}>Sign In</Text>
                 <View style={{ flexDirection: 'row', alignItems: 'center', marginTop: SIZES.h5 }}>
