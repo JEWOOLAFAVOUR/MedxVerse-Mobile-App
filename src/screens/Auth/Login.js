@@ -27,15 +27,21 @@ const Login = () => {
             return;
         }
         try {
+            setLoad(true)
             const { status, data } = await loginUser(body);
+            setLoad(false)
+
+            console.log('data from login', data)
 
             if (data?.success === true) {
                 sendToast('success', data?.message)
+                navigation.navigate("Main", { screen: "Bottom" })
+            } else if (data?.checkStatus === "verify-later") {
+                sendToast('error', data?.message)
             } else {
                 sendToast('error', data?.message)
             }
 
-            navigation.navigate("Main", { screen: "Bottom" })
         } catch (error) {
             console.log('error from login', error)
         }
@@ -44,6 +50,7 @@ const Login = () => {
 
     return (
         <ScrollView style={styles.page}>
+            <Roller visible={load} />
             <View style={{ marginTop: SIZES.h1 }}>
                 <Text style={{ ...FONTS.h2, color: COLORS.primary }}>Sign In</Text>
                 <View style={{ flexDirection: 'row', alignItems: 'center', marginTop: SIZES.h5 }}>
@@ -56,13 +63,13 @@ const Login = () => {
             {/* INPUT */}
             <View style={{ marginTop: SIZES.h1, marginBottom: SIZES.h2 }}>
                 <FormInput title="Email"
-                    placeholder="John Doe"
+                    placeholder="johndoe@gmail.com"
                     value={email}
                     setValue={setEmail}
                 />
                 <FormInput
                     title="Password"
-                    placeholder="johndoe@gmail.com"
+                    placeholder="*********"
                     eyeoff={true}
                     value={password}
                     setValue={setPassword}
