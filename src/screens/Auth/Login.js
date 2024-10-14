@@ -38,6 +38,7 @@ const Login = () => {
                 navigation.navigate("Main", { screen: "Bottom" })
             } else if (data?.checkStatus === "verify-later") {
                 sendToast('error', data?.message)
+                navigation.navigate("VerifyOtp")
             } else {
                 sendToast('error', data?.message)
             }

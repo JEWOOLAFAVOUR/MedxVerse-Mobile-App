@@ -29,7 +29,7 @@ export const makeSecurity = (type, data) => {
     }
 
     if (type === 'register') {
-        const { email, firstname, lastname } = data;
+        const { email, firstname, lastname, username } = data;
         if (!firstname || firstname.trim() === "") {
             errors.push("Enter a Valid FirstName");
         }
