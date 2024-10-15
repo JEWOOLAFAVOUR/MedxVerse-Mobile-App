@@ -11,10 +11,10 @@ const FormInput = ({ title, placeholder, keyboardType, eyeoff, value, setValue, 
                 <TextInput
                     placeholder={placeholder}
                     placeholderTextColor={COLORS.secondary}
-                    style={{ ...FONTS.body4b, fontFamily: "Mont-Medium", color: "#040B1B", flex: 1 }}
+                    style={{ ...FONTS.body4b, fontFamily: "Mont-Light", color: "#040B1B", flex: 1 }}
                     keyboardType={keyboardType}
                     value={value}
-                    // defaultValue='ssssjj'
+                    // secureTextEntry={hide ? true : false}
                     onChangeText={setValue}
                 />
                 {eyeoff &&
