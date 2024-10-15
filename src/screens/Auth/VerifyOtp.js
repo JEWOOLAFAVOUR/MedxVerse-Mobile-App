@@ -69,6 +69,7 @@ const VerifyOtp = ({ route }) => {
                 </View>
                 <View style={{ flexDirection: 'row', alignItems: 'center', marginTop: SIZES.h5 }}>
                     <Text style={{ ...FONTS.body5, fontFamily: "Mont-Regular" }}>We have sent an OTP code to your email.</Text>
+                    <Text style={{ ...FONTS.body5, fontFamily: "Mont-Regular" }}>{routeData?.newBody?.email}.</Text>
                 </View>
             </View>
             {/* INPUT */}

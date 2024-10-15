@@ -10,7 +10,7 @@ const FormInput = ({ title, placeholder, keyboardType, eyeoff, value, setValue, 
             <View style={styles.container}>
                 <TextInput
                     placeholder={placeholder}
-                    style={{ ...FONTS.body4b, color: "#040B1B", flex: 1 }}
+                    style={{ ...FONTS.body4b, fontFamily: "Mont-Light", color: "#040B1B", flex: 1 }}
                     placeholderTextColor={COLORS.primary}
                     keyboardType={keyboardType}
                     value={value}

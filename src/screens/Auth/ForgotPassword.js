@@ -19,16 +19,19 @@ const ForgotPassword = () => {
         if (!email || email.trim() === "") {
             sendToast('error', 'Please enter a valid email')
         } else {
-            const { status, data } = await forgetPassword()
+            setLoad(true)
+            const { status, data } = await forgetPassword(body)
+            setLoad(false)
+
+            console.log('.......', data)
 
             if (data?.success === true) {
                 sendToast('success', data?.message)
-                navigation.navigate('VerifyOtp', { email })
+                navigation.navigate('ResetPassword', { data })
             } else {
                 sendToast('error', data?.message)
             }
         }
-        // navigation.navigate('VerifyOtp')
     }
     return (
         <ScrollView style={styles.page}>
