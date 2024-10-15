@@ -5,14 +5,16 @@ import AuthHeader from '../../components/Header/AuthHeader'
 import FormInput from '../../components/Input/FormInput'
 import FormButton from '../../components/Button/FormButton'
 import { useNavigation } from '@react-navigation/native'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { makeSecurity } from '../../components/Template/security'
 import { registerUser } from '../../api/auth'
-import { Roller } from '../../components/Template/utilis'
+import { Roller, sendToast } from '../../components/Template/utilis'
+import { updateUserAuthDetails } from '../../redux/actions/midAction'
 
 const CreateAccountPassword = () => {
     const navigation = useNavigation();
-    const userAuth = useSelector(state => state?.auth?.userAuth);
+    const dispatch = useDispatch();
+    const userAuth = useSelector(state => state?.mid?.userAuth);
     const [load, setLoad] = useState(false)
 
     const [password, setPassword] = useState('')
@@ -22,16 +24,34 @@ const CreateAccountPassword = () => {
         const body = { password, confirmPassword }
         const securityErrors = makeSecurity('password', body);
 
+        const pass = { password }
+
         if (securityErrors.length > 0) {
             sendToast('error', securityErrors[0]);
             console.log('erroo', securityErrors[0]);
             return;
         }
         try {
-            dispatch(updateUserAuthDetails({ ...body }))
+            dispatch(updateUserAuthDetails(pass))
+
+            console.log('comingggggggggg add data', userAuth)
 
             setLoad(true)
-            const { status, data } = await registerUser(userAuth);
+            const { status, data } = await registerUser();
+            setLoad(false)
+
+            if (data?.checkStatus === "activated") {
+                sendToast('error', data?.message)
+                navigation.navigate("Login")
+            } else if (data?.checkStatus === 'verify-later') {
+                sendToast('error', data?.message)
+                // navigation.navigate('')
+            } else if (data?.status === true) {
+                sendToast('success', data?.message);
+            } else {
+                sendToast('error', data?.message)
+            }
+
         } catch (error) {
             sendToast('error', error.message);
         }
