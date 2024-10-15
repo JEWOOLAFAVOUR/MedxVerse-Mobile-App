@@ -30,10 +30,10 @@ const VerifyOtp = ({ route }) => {
             console.log('verifffy', data)
 
             if (data?.success === true) {
-                sendToast('error', data?.message);
+                sendToast('success', data?.message);
                 navigation.replace("Login");
             } else if (data?.checkStatus === "activated") {
-                sendToast('error', data?.message)
+                sendToast('success', data?.message)
                 navigation.replace("Login")
             } else {
                 sendToast('error', data?.message);
@@ -67,7 +67,7 @@ const VerifyOtp = ({ route }) => {
                     </TouchableOpacity>
                     <Text style={{ ...FONTS.h2, color: COLORS.primary, marginTop: SIZES.base }}>Check your Email! To input your OTP.</Text>
                 </View>
-                <View style={{ flexDirection: 'row', alignItems: 'center', marginTop: SIZES.h5 }}>
+                <View style={{ marginTop: SIZES.h5 }}>
                     <Text style={{ ...FONTS.body5, fontFamily: "Mont-Regular" }}>We have sent an OTP code to your email.</Text>
                     <Text style={{ ...FONTS.body5, fontFamily: "Mont-Regular" }}>{routeData?.newBody?.email}.</Text>
                 </View>

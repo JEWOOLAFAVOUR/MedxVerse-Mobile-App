@@ -7,7 +7,7 @@ import FormButton from '../../components/Button/FormButton'
 import { useNavigation } from '@react-navigation/native'
 import { useDispatch, useSelector } from 'react-redux'
 import { makeSecurity } from '../../components/Template/security'
-import { registerUser } from '../../api/auth'
+import { registerUser, resendOtp } from '../../api/auth'
 import { Roller, sendToast } from '../../components/Template/utilis'
 import { updateUserAuthDetails } from '../../redux/actions/midAction'
 
@@ -47,7 +47,17 @@ const CreateAccountPassword = () => {
                 navigation.navigate("Login")
             } else if (data?.checkStatus === 'verify-later') {
                 sendToast('error', data?.message)
-                // navigation.navigate('')
+
+                let newBody = { userId: data?.userId, email: userAuth?.email }
+                let { data: newData, status } = await resendOtp(newBody)
+
+                if (newData?.success === true) {
+                    sendToast('success', newData?.message)
+                    navigation.navigate('VerifyOtp', { newBody })
+                } else {
+                    sendToast('error', newData?.message)
+                }
+
             } else if (data?.status === true) {
                 sendToast('success', data?.message);
                 navigation.navigate('VerifyOtp', { newBody: { userId: data?.data?.userId, email: data?.data?.email } })
