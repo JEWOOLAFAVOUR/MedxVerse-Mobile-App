@@ -10,7 +10,8 @@ import FormButton2 from '../../components/Button/FormButton2'
 import { Roller, sendToast } from '../../components/Template/utilis'
 import { verifyEmail } from '../../api/auth'
 
-const VerifyOtp = () => {
+const VerifyOtp = ({ route }) => {
+    console.log('data from route', route?.params)
     const navigation = useNavigation();
     const [otp, setOtp] = useState('');
     const [load, setLoad] = useState(false);

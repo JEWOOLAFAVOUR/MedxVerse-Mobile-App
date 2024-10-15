@@ -8,7 +8,7 @@ import { useNavigation } from '@react-navigation/native'
 import { makeSecurity } from '../../components/Template/security'
 import { Roller, sendToast } from '../../components/Template/utilis'
 import FormButton2 from '../../components/Button/FormButton2'
-import { loginUser } from '../../api/auth'
+import { loginUser, resendOtp } from '../../api/auth'
 
 const Login = () => {
     const navigation = useNavigation();
@@ -38,7 +38,16 @@ const Login = () => {
                 navigation.navigate("Main", { screen: "Bottom" })
             } else if (data?.checkStatus === "verify-later") {
                 sendToast('error', data?.message)
-                navigation.navigate("VerifyOtp")
+                // navigation.navigate("VerifyOtp")
+                let newBody = { userId: data?.userId, email }
+                let { data: newData, status } = await resendOtp(newBody)
+
+                if (newData?.success === true) {
+                    sendToast('success', newData?.message)
+                    navigation.navigate('VerifyOtp', { data: newData })
+                } else {
+                    sendToast('error', newData?.message)
+                }
             } else {
                 sendToast('error', data?.message)
             }
