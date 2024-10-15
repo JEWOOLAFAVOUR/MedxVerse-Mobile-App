@@ -10,8 +10,8 @@ const FormInput = ({ title, placeholder, keyboardType, eyeoff, value, setValue, 
             <View style={styles.container}>
                 <TextInput
                     placeholder={placeholder}
-                    style={{ ...FONTS.body4b, fontFamily: "Mont-Light", color: "#040B1B", flex: 1 }}
-                    placeholderTextColor={COLORS.primary}
+                    placeholderTextColor={COLORS.secondary}
+                    style={{ ...FONTS.body4b, fontFamily: "Mont-Medium", color: "#040B1B", flex: 1 }}
                     keyboardType={keyboardType}
                     value={value}
                     // defaultValue='ssssjj'

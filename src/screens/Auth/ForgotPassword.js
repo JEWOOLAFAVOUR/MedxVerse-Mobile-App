@@ -27,7 +27,7 @@ const ForgotPassword = () => {
 
             if (data?.success === true) {
                 sendToast('success', data?.message)
-                navigation.navigate('ResetPassword', { data })
+                navigation.navigate('ResetPassword', { data, email })
             } else {
                 sendToast('error', data?.message)
             }

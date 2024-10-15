@@ -1,27 +1,92 @@
-import { StyleSheet, Text, View, StatusBar, TouchableOpacity } from 'react-native'
-import React from 'react'
-import { COLORS, FONTS, SIZES } from '../../constants'
+import { StyleSheet, Text, View, StatusBar, TouchableOpacity, Image, ScrollView } from 'react-native'
+import React, { useState } from 'react'
+import { COLORS, FONTS, icons, SIZES } from '../../constants'
+import { useNavigation } from '@react-navigation/native'
+import { resetPassword } from '../../api/auth'
+import { sendToast } from '../../components/Template/utilis'
+import FormInput from '../../components/Input/FormInput'
+import { makeSecurity } from '../../components/Template/security'
+import FormButton from '../../components/Button/FormButton'
 
-const ResetPassword = () => {
+const ResetPassword = ({ route }) => {
+    const navigation = useNavigation();
+
+    const [password, setPassword] = useState('')
+    const [confirmPassword, setConfirmPassword] = useState('');
+
+    console.log('routtttttttttttttttt', route?.params)
+
+    const handleSubmit = async () => {
+
+        const body = { password, confirmPassword }
+        const securityErrors = makeSecurity('password', body);
+
+        if (securityErrors.length > 0) {
+            sendToast('error', securityErrors[0]);
+            console.log('erroo', securityErrors[0]);
+            return;
+        }
+        try {
+
+            const { data, status } = await resetPassword();
+
+            if (data?.success === true) {
+                sendToast('success', data?.message)
+            } else {
+                sendToast('error', data?.message)
+            }
+        } catch (error) {
+            sendToast('error', error.message);
+        }
+    }
+
     return (
         <View style={styles.page}>
             <StatusBar backgroundColor={COLORS.offwhite} barStyle='dark-content' />
-            <Text style={{ ...FONTS.h1a, color: COLORS.dark }}>Reset Your Password</Text>
-            <View style={{ marginTop: SIZES.h3 }}>
-                <Text style={{ ...FONTS.body4, color: COLORS.black }}>Enter transaction 4-digit PIN-Code or use yout biometrics to perform action.</Text>
-                {/* UNDER */}
-                <View style={{ marginTop: SIZES.h1 }}>
-                    <View style={{ flexDirection: 'row', alignItems: 'center', marginBottom: SIZES.h5, alignSelf: 'center' }}>
-                        <Text style={{ ...FONTS.body4, color: COLORS.black }}>Didn't recieve an OTP?</Text>
-                        <TouchableOpacity>
-                            <Text style={{ ...FONTS.h4, color: COLORS.black2, fontFamily: "Satoshi-Black" }}> Resend</Text>
+            <TouchableOpacity onPress={() => navigation.goBack()}>
+                <Image source={icons.arrowleft2} style={{ height: SIZES.h2, width: SIZES.h2 }} />
+            </TouchableOpacity>
+            <Text style={{ ...FONTS.h1a, color: COLORS.primary, marginTop: SIZES.h4 }}>Reset Your Password</Text>
+            <ScrollView showsVerticalScrollIndicator={false}>
+                <View style={{ marginTop: SIZES.h3 }}>
+                    <Text style={{ ...FONTS.body4, color: COLORS.black }}>Enter transaction 4-digit PIN-Code or use yout biometrics to perform action.</Text>
+                    {/* UNDER */}
+                    <View style={{ marginTop: SIZES.h1 }}>
+                        <View style={{ flexDirection: 'row', alignItems: 'center', marginBottom: SIZES.h5, alignSelf: 'center' }}>
+                            <Text style={{ ...FONTS.body4, color: COLORS.black }}>Didn't recieve an OTP?</Text>
+                            <TouchableOpacity>
+                                <Text style={{ ...FONTS.h4, fontSize: SIZES.h4 * 1.2, color: COLORS.black2, fontFamily: "Mont-Medium" }}> Resend</Text>
+                            </TouchableOpacity>
+                        </View>
+                        <TouchableOpacity onPress={() => navigation.goBack()}>
+                            <Text style={{ ...FONTS.body4, textDecorationLine: 'underline', color: COLORS.black2, textAlign: 'center', }}>Change Email Address</Text>
                         </TouchableOpacity>
                     </View>
-                    <TouchableOpacity>
-                        <Text style={{ ...FONTS.body4, textDecorationLine: 'underline', color: COLORS.black2, textAlign: 'center', }}>Change Email Address</Text>
-                    </TouchableOpacity>
                 </View>
-            </View>
+                <View style={{ marginTop: SIZES.h1, marginBottom: SIZES.h4 }}>
+                    <FormInput
+                        title="Password"
+                        placeholder="john@1234"
+                        eyeoff={true}
+                        value={password}
+                        setValue={setPassword}
+                    />
+                    <FormInput
+                        title="Confirm Password"
+                        placeholder="john@1234"
+                        eyeoff={true}
+                        value={confirmPassword}
+                        setValue={setConfirmPassword}
+                    />
+                </View>
+                {/* REGULATORS */}
+                <View style={{ marginBottom: SIZES.h1 * 2.3 }}>
+                    <Text style={{ fontFamily: "Mont-Regular", fontSize: SIZES.h5, color: COLORS.primary, marginBottom: SIZES.base * 0.5 }}>- Your password must be at least 8 characters long.</Text>
+                    <Text style={{ fontFamily: "Mont-Regular", fontSize: SIZES.h5, color: COLORS.primary }}>- For security purposes, avoid using common words or phrases as your password.</Text>
+                </View>
+                {/* BUTTON */}
+                <FormButton title="Create Password" onPress={() => handleSubmit()} />
+            </ScrollView>
         </View>
     )
 }
