@@ -18,7 +18,7 @@ const VerifyOtp = ({ route }) => {
     const [load, setLoad] = useState(false);
 
     const handleSubmit = async () => {
-        const body = { otp, userId: routeData?.newBody?.userId }
+        const body = { otp, userId: routeData?.newBody?.userId };
 
         if (!otp || otp.length < 3) {
             sendToast('error', 'Invalid Otp')
@@ -37,7 +37,7 @@ const VerifyOtp = ({ route }) => {
     };
 
     const handleResend = async () => {
-        const body = { userId: routeData?.newBody?.userId, email: routeData?.newBody?.email }
+        const body = { userId: routeData?.newBody?.userId, email: routeData?.newBody?.email };
 
         setLoad(true)
         const { data, status } = await resendOtp(body);
