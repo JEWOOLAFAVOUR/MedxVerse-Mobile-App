@@ -50,6 +50,7 @@ const CreateAccountPassword = () => {
                 // navigation.navigate('')
             } else if (data?.status === true) {
                 sendToast('success', data?.message);
+                navigation.navigate('VerifyOtp', { newBody: { userId: data?.data?.userId, email: data?.data?.email } })
             } else {
                 sendToast('error', data?.message || data?.error)
             }
