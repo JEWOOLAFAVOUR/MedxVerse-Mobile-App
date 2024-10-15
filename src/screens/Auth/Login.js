@@ -44,7 +44,7 @@ const Login = () => {
 
                 if (newData?.success === true) {
                     sendToast('success', newData?.message)
-                    navigation.navigate('VerifyOtp', { data: newData })
+                    navigation.navigate('VerifyOtp', { newBody })
                 } else {
                     sendToast('error', newData?.message)
                 }

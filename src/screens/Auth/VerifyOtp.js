@@ -8,29 +8,48 @@ import { useNavigation } from '@react-navigation/native'
 import ConfirmationCodeField from '../../components/Input/CodeConfirmation'
 import FormButton2 from '../../components/Button/FormButton2'
 import { Roller, sendToast } from '../../components/Template/utilis'
-import { verifyEmail } from '../../api/auth'
+import { resendOtp, verifyEmail } from '../../api/auth'
 
 const VerifyOtp = ({ route }) => {
     console.log('data from route', route?.params)
+    let routeData = route?.params;
     const navigation = useNavigation();
     const [otp, setOtp] = useState('');
     const [load, setLoad] = useState(false);
 
     const handleSubmit = async () => {
-        const body = { otp }
+        const body = { otp, userId: routeData?.newBody?.userId }
 
         if (!otp || otp.length < 3) {
             sendToast('error', 'Invalid Otp')
         } else {
-            const { data, status } = await verifyEmail();
+            setLoad(true)
+            const { data, status } = await verifyEmail(body);
+            setLoad(false)
 
             if (data?.success === true) {
-                sendToast('error', data?.message)
+                sendToast('error', data?.message);
+                navigation.replace("Login");
             } else {
-                sendToast('error', data?.message)
+                sendToast('error', data?.message);
             }
         }
+    };
+
+    const handleResend = async () => {
+        const body = { userId: routeData?.newBody?.userId, email: routeData?.newBody?.email }
+
+        setLoad(true)
+        const { data, status } = await resendOtp(body);
+        setLoad(false)
+
+        if (data?.success === true) {
+            sendToast('success', data?.message);
+        } else {
+            sendToast('error', data?.message);
+        }
     }
+
     return (
         <View style={styles.page}>
             {load && <Roller visible={load} />}
@@ -51,8 +70,8 @@ const VerifyOtp = ({ route }) => {
             </View>
 
             {/* BUTTON */}
-            <FormButton title="Confirm OTP" onPress={() => navigation.navigate("")} />
-            <FormButton2 title="Resend OTP" btnStyle={{ marginTop: SIZES.h1 }} />
+            <FormButton title="Confirm OTP" onPress={() => handleSubmit()} />
+            <FormButton2 title="Resend OTP" onPress={() => handleResend()} btnStyle={{ marginTop: SIZES.h1 }} />
         </View>
     )
 }
