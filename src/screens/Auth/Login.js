@@ -9,8 +9,11 @@ import { makeSecurity } from '../../components/Template/security'
 import { Roller, sendToast } from '../../components/Template/utilis'
 import FormButton2 from '../../components/Button/FormButton2'
 import { loginUser, resendOtp } from '../../api/auth'
+import { useDispatch } from 'react-redux'
+import { updateUserAccessToken } from '../../redux/actions/authAction'
 
 const Login = () => {
+    const dispatch = useDispatch();
     const navigation = useNavigation();
     const [load, setLoad] = useState(false);
     const [email, setEmail] = useState('')
@@ -35,6 +38,7 @@ const Login = () => {
 
             if (data?.success === true) {
                 sendToast('success', data?.message)
+                dispatch(updateUserAccessToken(data?.accessToken))
                 navigation.navigate("Main", { screen: "Bottom" })
             } else if (data?.checkStatus === "verify-later") {
                 sendToast('error', data?.message)
@@ -54,8 +58,7 @@ const Login = () => {
 
         } catch (error) {
             console.log('error from login', error)
-        }
-        // navigation.replace("Main", { screen: "Bottom" });
+        };
     };
 
     return (

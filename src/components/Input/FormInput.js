@@ -32,7 +32,7 @@ export default FormInput
 const styles = StyleSheet.create({
     container: {
         height: SIZES.h1 * 1.8,
-        borderWidth: 0.8,
+        borderWidth: 1.2,
         borderRadius: SIZES.base * 0.8,
         marginTop: SIZES.base * 0.7,
         paddingLeft: SIZES.h5,

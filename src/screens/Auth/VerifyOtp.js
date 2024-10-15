@@ -20,16 +20,21 @@ const VerifyOtp = ({ route }) => {
     const handleSubmit = async () => {
         const body = { otp, userId: routeData?.newBody?.userId };
 
-        if (!otp || otp.length < 3) {
+        if (!otp || otp.length < 5) {
             sendToast('error', 'Invalid Otp')
         } else {
             setLoad(true)
             const { data, status } = await verifyEmail(body);
             setLoad(false)
 
+            console.log('verifffy', data)
+
             if (data?.success === true) {
                 sendToast('error', data?.message);
                 navigation.replace("Login");
+            } else if (data?.checkStatus === "activated") {
+                sendToast('error', data?.message)
+                navigation.replace("Login")
             } else {
                 sendToast('error', data?.message);
             }
@@ -42,6 +47,8 @@ const VerifyOtp = ({ route }) => {
         setLoad(true)
         const { data, status } = await resendOtp(body);
         setLoad(false)
+
+        console.log('eeeeeeeeeeeeeee', data)
 
         if (data?.success === true) {
             sendToast('success', data?.message);
