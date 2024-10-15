@@ -37,8 +37,10 @@ const CreateAccountPassword = () => {
             console.log('comingggggggggg add data', userAuth)
 
             setLoad(true)
-            const { status, data } = await registerUser();
+            const { status, data } = await registerUser(userAuth);
             setLoad(false)
+
+            console.log('data of create', data)
 
             if (data?.checkStatus === "activated") {
                 sendToast('error', data?.message)
@@ -49,7 +51,7 @@ const CreateAccountPassword = () => {
             } else if (data?.status === true) {
                 sendToast('success', data?.message);
             } else {
-                sendToast('error', data?.message)
+                sendToast('error', data?.message || data?.error)
             }
 
         } catch (error) {
